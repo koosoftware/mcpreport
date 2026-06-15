@@ -63,6 +63,37 @@ If `node` isn't found by AnythingLLM, use the absolute path to your Node binary
 If the file already has other servers, just add `qms-report` inside the existing
 `mcpServers` object.
 
+## 3b. Provide credentials (auto-login — no cookies/tokens to manage)
+
+The server logs into QMS itself: it POSTs the login, captures the `JSESSIONID`
+cookie, scrapes the `csrf-token` from the response, and re-authenticates if the
+session expires. You only set stable credentials via an `env` block (Windows
+example shown):
+
+```json
+{
+  "mcpServers": {
+    "qms-report": {
+      "command": "C:\\PROGRA~1\\nodejs\\node.exe",
+      "args": ["C:\\qms\\mcpreport\\server.js"],
+      "env": {
+        "QMS_BASE_URL": "http://54.251.164.99:49999",
+        "QMS_USER": "admin",
+        "QMS_HASH_PWD": "8dc2fbace0...PASTE_FROM_LOGIN_PAYLOAD...16cc5ee"
+      }
+    }
+  }
+}
+```
+
+`QMS_HASH_PWD` is the **`hashPwd` value** from the login request's Payload (a
+stable SHA-256 hash, not your plaintext password — copy it once from DevTools).
+Alternatively, if `hashPwd == sha256(password)` on your install, set `QMS_PASS`
+(plaintext) instead and the server will hash it for you.
+
+These values don't expire, so you set them once. Keep this config out of git
+(treat the password hash as a secret).
+
 ## 4. Start it in AnythingLLM
 
 1. Open the **Agent Skills** page in AnythingLLM (this auto-starts MCP servers).
@@ -83,6 +114,10 @@ If the file already has other servers, just add `qms-report` inside the existing
 - If AnythingLLM can't start the server, it's almost always the `command` path —
   use an absolute path to `node` and to `server.js`, and make sure you ran
   `npm install` in this folder so `node_modules` exists.
+- **Windows (AnythingLLM desktop):** spawning `C:\Program Files\nodejs\node.exe`
+  can fail with `ENOENT` because the space in `Program Files` trips the spawner.
+  Use the 8.3 short path instead: `C:\\PROGRA~1\\nodejs\\node.exe` (verify the
+  short name with `dir /x C:\`). Keep the project path space-free too.
 - A 9B model will occasionally pick the wrong report or skip a parameter; the
   server validates inputs and returns a helpful `error` so the model can recover.
 - The mock ignores most filters and returns fixed sample data — that's expected
