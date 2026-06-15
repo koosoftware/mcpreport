@@ -44,9 +44,23 @@ export const REPORTS = {
       "tickets served, transfers, total; and average / longest / total waiting time, " +
       "serving time and time spent (HH:MM:SS). One row per day. Use for questions about " +
       "daily queue/branch performance, ticket volume, no-shows, wait times or serving times.",
-    params: ["date"],
+    period: "daily", // input: YYYY-MM-DD
     hRptId: "11028",
     hRptType: "D",
+    hRptClassId: "1",
+    hLoad1stRecId: "99023134",
+    hLoad1stRecNm: "AKPK Appointment Ticket Report",
+  },
+  monthly_queue_performance: {
+    label: "Monthly Queue Performance By Day",
+    description:
+      "Queue performance for a whole month, broken down per day (one row per day in the " +
+      "month): tickets issued, no-shows, served, transfers, total; and average / longest / " +
+      "total waiting time, serving time and time spent (HH:MM:SS). Use for questions about a " +
+      "month's queue/branch performance, daily trends within a month, or monthly totals.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12011",
+    hRptType: "M",
     hRptClassId: "1",
     hLoad1stRecId: "99023134",
     hLoad1stRecNm: "AKPK Appointment Ticket Report",
@@ -86,7 +100,9 @@ const PAYLOAD_TEMPLATE =
   "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=";
 
 export const today = () => new Date().toISOString().slice(0, 10);
+export const thisMonth = () => new Date().toISOString().slice(0, 7);
 export const isIsoDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s) && !Number.isNaN(Date.parse(s));
+export const isYearMonth = (s) => /^\d{4}-\d{2}$/.test(s);
 
 /** Portable HTTP request (built-in http/https — no global fetch dependency). */
 export function request(urlStr, { method = "GET", headers = {}, body = "" } = {}) {
@@ -200,25 +216,39 @@ export class Session {
   }
 }
 
-export function buildBody(report, rptDt, csrf) {
+/** Build the form body. `period` is YYYY-MM-DD (daily) or YYYY-MM (monthly). */
+export function buildBody(report, period, csrf) {
   const p = new URLSearchParams(PAYLOAD_TEMPLATE);
   p.set("csrf-token", csrf || "");
-  p.set("rptDt", rptDt);
   p.set("hRptOut", "csv");
   p.set("hRptId", report.hRptId);
   p.set("hRptType", report.hRptType);
   p.set("hRptClassId", report.hRptClassId);
   p.set("hLoad1stRecId", report.hLoad1stRecId);
   p.set("hLoad1stRecNm", report.hLoad1stRecNm);
+  if (report.period === "monthly") {
+    const [yr, mth] = String(period).split("-");
+    p.delete("rptDt");
+    p.set("rptMth", mth || "");
+    p.set("rptYr", yr || "");
+    p.set("rptLevel", "");
+    p.set("rptSelFieldIdList", "");
+  } else {
+    p.delete("rptMth");
+    p.set("rptDt", period);
+    p.set("rptYr", "");
+    p.set("rptLevel", "1");
+    p.set("rptSelFieldIdList", "0");
+  }
   return p.toString();
 }
 
 /** Low-level report POST. Returns the raw response details. */
-export async function postReportRaw(session, report, rptDt) {
+export async function postReportRaw(session, report, period) {
   const resp = await request(BASE_URL + REPORT_PATH, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded", Cookie: session.cookie },
-    body: buildBody(report, rptDt, session.csrf),
+    body: buildBody(report, period, session.csrf),
   });
   const ctype = (resp.headers["content-type"] || "").toLowerCase();
   const text = resp.text;
@@ -232,19 +262,19 @@ export async function postReportRaw(session, report, rptDt) {
 const session = new Session();
 
 /** High-level: ensure login, fetch + parse the report, retry once on expiry. */
-export async function fetchReport(report, rptDt) {
+export async function fetchReport(report, period) {
   await session.ensure();
-  let r = await postReportRaw(session, report, rptDt);
+  let r = await postReportRaw(session, report, period);
   if (r.looksLikeLogin) {
     session.cookie = "";
     await session.login();
-    r = await postReportRaw(session, report, rptDt);
+    r = await postReportRaw(session, report, period);
   }
   if (!r.ok) return { error: "http_error", status: r.status, body_preview: r.text.slice(0, 300) };
   if (r.looksLikeLogin) {
     return { error: "session_expired", message: "Got HTML after re-login — csrf may be required or params invalid." };
   }
-  return { report: report.label, date: rptDt, ...condense(r.text) };
+  return { report: report.label, period, ...condense(r.text) };
 }
 
 export function parseCSV(text) {

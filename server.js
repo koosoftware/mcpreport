@@ -13,7 +13,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { REPORTS, fetchReport, today, isIsoDate } from "./qms-core.js";
+import { REPORTS, fetchReport, today, thisMonth, isIsoDate, isYearMonth } from "./qms-core.js";
 
 const server = new McpServer({ name: "qms-report", version: "3.2.0" });
 
@@ -22,7 +22,10 @@ function jsonContent(obj) {
 }
 
 const reportCatalog = Object.entries(REPORTS)
-  .map(([key, r]) => `  - ${key}: ${r.description || r.label}`)
+  .map(([key, r]) => {
+    const input = r.period === "monthly" ? "month YYYY-MM" : "date YYYY-MM-DD";
+    return `  - ${key} (input: ${input}): ${r.description || r.label}`;
+  })
   .join("\n");
 
 server.tool(
@@ -32,21 +35,29 @@ server.tool(
     "tickets, no-shows, waiting or serving times. The server logs in automatically.\n" +
     "Available reports:\n" +
     reportCatalog +
-    "\ndate is YYYY-MM-DD and defaults to today.",
+    "\nPass `period` matching the report's input format (defaults to current day/month).",
   {
     report: z.string().describe("Report key from the available reports list, e.g. 'daily_queue_performance'."),
-    date: z.string().optional().describe("Report date YYYY-MM-DD. Defaults to today."),
+    period: z
+      .string()
+      .optional()
+      .describe("Reporting period. Daily reports: YYYY-MM-DD. Monthly reports: YYYY-MM. Defaults to current day/month."),
   },
-  async ({ report, date = "" }) => {
+  async ({ report, period = "" }) => {
     const def = REPORTS[report];
     if (!def) {
       return jsonContent({ error: "invalid_report", message: `'${report}' is not valid.`, available: Object.keys(REPORTS) });
     }
-    if (date && !isIsoDate(date)) {
-      return jsonContent({ error: "invalid_date", message: `date must be YYYY-MM-DD, got '${date}'.` });
+    const monthly = def.period === "monthly";
+    const value = period || (monthly ? thisMonth() : today());
+    if (monthly && !isYearMonth(value)) {
+      return jsonContent({ error: "invalid_period", message: `monthly report needs period as YYYY-MM, got '${value}'.` });
+    }
+    if (!monthly && !isIsoDate(value)) {
+      return jsonContent({ error: "invalid_period", message: `daily report needs period as YYYY-MM-DD, got '${value}'.` });
     }
     try {
-      return jsonContent(await fetchReport(def, date || today()));
+      return jsonContent(await fetchReport(def, value));
     } catch (e) {
       return jsonContent({ error: "request_failed", message: String(e?.message || e) });
     }
@@ -63,7 +74,7 @@ server.tool(
         key,
         label: r.label,
         description: r.description || "",
-        params: r.params || ["date"],
+        input: r.period === "monthly" ? "month (YYYY-MM)" : "date (YYYY-MM-DD)",
       })),
       today: today(),
     })
