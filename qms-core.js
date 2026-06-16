@@ -65,6 +65,1151 @@ export const REPORTS = {
     hLoad1stRecId: "99023134",
     hLoad1stRecNm: "AKPK Appointment Ticket Report",
   },
+  periodic_queue_performance: {
+    label: "Periodically Queue Performance By Day",
+    description:
+      "Queue performance over a custom date range, broken down per day (one row per day " +
+      "between a start and end date): tickets issued, no-shows, served, transfers, total; " +
+      "and average / longest / total waiting time, serving time and time spent (HH:MM:SS). " +
+      "Use for questions spanning a custom 'from X to Y' period or several days.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13011",
+    hRptType: "P",
+    hRptClassId: "1",
+    hLoad1stRecId: "99023134",
+    hLoad1stRecNm: "AKPK Appointment Ticket Report",
+  },
+  daily_by_service_queue_performance: {
+    label: "Daily Queue Performance By Day By Service",
+    description:
+      "Queue performance for a single date, broken down by service type (one row per " +
+      "service: Self Service Terminal, With Appointment - Advisory, With Appointment - Post " +
+      "DMP / Less 3 facilities, Without Appointment - Advisory, Without Appointment - Post " +
+      "DMP / Less 3 facilities): tickets issued, no-shows, served, waiting and serving times. " +
+      "Use for questions comparing services, or about a specific service's performance on a day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11095",
+    // This report breaks down by service. We rely on the select-all flags
+    // (chkAllSvc=on + hSelectAllServiceFlg=Y) instead of hardcoding install-specific
+    // service IDs — verified to return all services. csrf-token is blanked and
+    // rptDt is overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-16&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&targetWT=-1" +
+      "&targetST=-1&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=11095&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=-1" +
+      "&hSelTgtSt=-1&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=1&hTgtStTypeSelInd=1&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_by_service_queue_performance: {
+    label: "Monthly Queue Performance By Day By Service",
+    description:
+      "Queue performance for a whole month, broken down by service type (one row per " +
+      "service: Self Service Terminal, With Appointment - Advisory, With Appointment - Post " +
+      "DMP / Less 3 facilities, Without Appointment - Advisory, Without Appointment - Post " +
+      "DMP / Less 3 facilities): tickets served, transfers, totals, waiting and serving times, " +
+      "and % within target. Use for questions comparing services over a month, or a specific " +
+      "service's monthly performance.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12024",
+    // Same by-service report, monthly. Relies on select-all flags (no hardcoded
+    // service IDs). csrf-token blanked; rptMth/rptYr overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&targetWT=-1" +
+      "&targetST=-1&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=12024&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=-1" +
+      "&hSelTgtSt=-1&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=1&hTgtStTypeSelInd=1&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_by_service_queue_performance: {
+    label: "Periodically Queue Performance By Day By Service",
+    description:
+      "Queue performance over a custom date range, broken down by service type (one row per " +
+      "service: Self Service Terminal, With Appointment - Advisory, With Appointment - Post " +
+      "DMP / Less 3 facilities, Without Appointment - Advisory, Without Appointment - Post " +
+      "DMP / Less 3 facilities): tickets served, transfers, totals, waiting and serving times, " +
+      "and % within target. Use for questions comparing services over a custom 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13024",
+    // By-service report over a date range. Relies on select-all flags (no hardcoded
+    // service IDs). csrf-token blanked; rptfrmDt/rpttoDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-15&rpttoDt=2026-06-16&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&targetWT=-1" +
+      "&targetST=-1&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=P&hRptId=13024&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=-1" +
+      "&hSelTgtSt=-1&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=1&hTgtStTypeSelInd=1&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_by_service_group_queue_performance: {
+    label: "Daily Queue Performance By Day By Service By Service Group",
+    description:
+      "Queue performance for a single date, broken down by service type within a service " +
+      "group: tickets served, transfers, totals, waiting and serving times, and % within " +
+      "target. Use for questions about service-group performance on a given day, or comparing " +
+      "services within a group.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11059",
+    // By-service-group report. Both service IDs and the service-group id are dropped
+    // (verified that select-all flags return all services and all groups), so this is
+    // install-agnostic. csrf-token blanked; rptDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-16&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&targetWT=-1" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=11059&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=-1" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=1&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=1" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=Y&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_by_service_group_queue_performance: {
+    label: "Monthly Queue Performance By Day By Service By Service Group",
+    description:
+      "Queue performance for a whole month, broken down by service type within a service " +
+      "group: tickets served, transfers, totals, waiting and serving times, and % within " +
+      "target. Use for questions about service-group performance over a month, or comparing " +
+      "services within a group across a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12059",
+    // By-service-group, monthly. Service IDs and the service-group id are dropped
+    // (select-all flags return all). csrf-token blanked; rptMth/rptYr overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&targetWT=-1" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=12059&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=-1" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=1&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=1" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=Y&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_by_service_group_queue_performance: {
+    label: "Periodically Queue Performance By Day By Service By Service Group",
+    description:
+      "Queue performance over a custom date range, broken down by service type within a " +
+      "service group: tickets served, transfers, totals, waiting and serving times, and % " +
+      "within target. Use for service-group performance over a custom 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13059",
+    // By-service-group, date range. Service IDs and the service-group id are dropped
+    // (select-all flags return all). csrf-token blanked; rptfrmDt/rpttoDt overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-15&rpttoDt=2026-06-16&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&targetWT=-1" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=P&hRptId=13059&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=-1" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=1&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=1" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=Y&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_service_summary_queue_performance: {
+    label: "Daily Queue Performance By Service",
+    description:
+      "Queue performance for a single date summarized by service type (one row per service: " +
+      "Self Service Terminal, With/Without Appointment categories): tickets served, transfers, " +
+      "totals, waiting and serving times, and % within target. Similar to the 'By Day By " +
+      "Service' report but a per-service summary for the date. Use when the user asks for a " +
+      "service-level summary of a day's performance.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11023",
+    // Per-service summary report. Service IDs dropped (select-all works). csrf-token
+    // blanked; rptDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-16&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&targetWT=-1" +
+      "&targetST=-1&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=11023&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=-1" +
+      "&hSelTgtSt=-1&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=1&hTgtStTypeSelInd=1&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_service_summary_queue_performance: {
+    label: "Monthly Queue Performance By Service",
+    description:
+      "Queue performance for a whole month summarized by service type (one row per service " +
+      "for the month, not per day): tickets served, transfers, totals, waiting and serving " +
+      "times, and % within target. Use when the user wants a service-level summary of a " +
+      "month's performance (monthly totals per service).",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12006",
+    // Per-service monthly summary. Service IDs dropped (select-all works). csrf-token
+    // blanked; rptMth/rptYr overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&targetWT=-1" +
+      "&targetST=-1&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=12006&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=-1" +
+      "&hSelTgtSt=-1&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=1&hTgtStTypeSelInd=1&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_service_summary_queue_performance: {
+    label: "Periodically Queue Performance By Service",
+    description:
+      "Queue performance over a custom date range summarized by service type (one row per " +
+      "service for the whole range, not per day): tickets served, transfers, totals, waiting " +
+      "and serving times, and % within target. Use when the user wants a service-level summary " +
+      "over a custom 'from X to Y' span. (Differs from periodic_by_service_queue_performance, " +
+      "which gives per-day rows.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13006",
+    // Per-service range summary. Service IDs dropped (select-all works). csrf-token
+    // blanked; rptfrmDt/rpttoDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-15&rpttoDt=2026-06-16&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&targetWT=-1" +
+      "&targetST=-1&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=P&hRptId=13006&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=-1" +
+      "&hSelTgtSt=-1&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=1&hTgtStTypeSelInd=1&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_by_service_teller_queue_performance: {
+    label: "Daily Queue Performance By Service By Teller",
+    description:
+      "Queue performance for a single date, broken down by service type and by teller/staff " +
+      "member: tickets served, transfers, totals, waiting and serving times. Use when the user " +
+      "asks about teller or staff performance, comparing tellers, or per-teller service " +
+      "performance on a given day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11025",
+    // Service IDs and the (large) teller list are dropped; relies on select-all flags
+    // (chkAllSvc=on + hSelectAllServiceFlg=Y, chkAllTr=on + hSelectAllTellerFlg=Y).
+    // csrf-token blanked; rptDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-16&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=11025&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_by_service_teller_queue_performance: {
+    label: "Monthly Queue Performance By Service By Teller",
+    description:
+      "Queue performance for a whole month, broken down by service type and by teller/staff " +
+      "member: customers served, waiting and serving times. Use for questions about teller/" +
+      "staff performance over a month, or comparing tellers across a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12008",
+    // Service IDs and teller list dropped; relies on select-all flags. csrf-token
+    // blanked; rptMth/rptYr overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=12008&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_by_service_teller_queue_performance: {
+    label: "Periodically Queue Performance By Service By Teller",
+    description:
+      "Queue performance over a custom date range, broken down by service type and by teller/" +
+      "staff member: customers served, waiting and serving times. Use for teller/staff " +
+      "performance over a custom 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13008",
+    // Service IDs and teller list dropped; relies on select-all flags. csrf-token
+    // blanked; rptfrmDt/rpttoDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-15&rpttoDt=2026-06-16&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=P&hRptId=13008&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_by_teller_service_queue_performance: {
+    label: "Daily Queue Performance By Teller By Service",
+    description:
+      "Queue performance for a single date, grouped by teller/staff member then by service " +
+      "type (teller-first ordering): customers served, waiting and serving times. Use when " +
+      "the user wants a teller-focused breakdown of a day, i.e. each teller's services. " +
+      "(Same data as the 'By Service By Teller' report but ordered teller-first.)",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11041",
+    // Service IDs and teller list dropped; relies on select-all flags. csrf-token
+    // blanked; rptDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-16&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=11041&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_by_teller_service_queue_performance: {
+    label: "Monthly Queue Performance By Teller By Service",
+    description:
+      "Queue performance for a whole month, grouped by teller/staff member then by service " +
+      "type (teller-first ordering): customers served, waiting and serving times. Use for a " +
+      "teller-focused monthly breakdown. (Same data as the monthly 'By Service By Teller' " +
+      "report but ordered teller-first.)",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12025",
+    // Service IDs and teller list dropped; relies on select-all flags. csrf-token
+    // blanked; rptMth/rptYr overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=12025&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_by_teller_service_queue_performance: {
+    label: "Periodically Queue Performance By Teller By Service",
+    description:
+      "Queue performance over a custom date range, grouped by teller/staff member then by " +
+      "service type (teller-first ordering): customers served, waiting and serving times. Use " +
+      "for a teller-focused breakdown over a custom 'from X to Y' span. (Same data as the " +
+      "periodic 'By Service By Teller' report but ordered teller-first.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13025",
+    // Service IDs and teller list dropped; relies on select-all flags. csrf-token
+    // blanked; rptfrmDt/rpttoDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-15&rpttoDt=2026-06-16&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=P&hRptId=13025&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_by_teller_service_group_queue_performance: {
+    label: "Daily Queue Performance By Teller By Service By Service Group",
+    description:
+      "Queue performance for a single date, grouped by teller/staff member, service type and " +
+      "service group: customers served, waiting and serving times. The most detailed daily " +
+      "breakdown. Use when the user wants teller performance broken down by service and " +
+      "service group on a given day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11058",
+    // Combines all three breakdowns. Service IDs, teller list AND service-group id are
+    // dropped; relies on select-all flags (all three verified). csrf-token blanked;
+    // rptDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-16&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=11058&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=1" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=Y&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_by_teller_service_group_queue_performance: {
+    label: "Monthly Queue Performance By Teller By Service By Service Group",
+    description:
+      "Queue performance for a whole month, grouped by teller/staff member, service type and " +
+      "service group: customers served, waiting and serving times. The most detailed monthly " +
+      "breakdown. Use when the user wants teller performance broken down by service and " +
+      "service group over a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12058",
+    // Combines all three breakdowns. Service IDs, teller list AND service-group id are
+    // dropped; relies on select-all flags. csrf-token blanked; rptMth/rptYr overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=12058&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=1" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=Y&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_by_teller_service_group_queue_performance: {
+    label: "Periodically Queue Performance By Teller By Service By Service Group",
+    description:
+      "Queue performance over a custom date range, grouped by teller/staff member, service " +
+      "type and service group: customers served, waiting and serving times. The most detailed " +
+      "range breakdown. Use when the user wants teller performance broken down by service and " +
+      "service group over a custom 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13058",
+    // Combines all three breakdowns. Service IDs, teller list AND service-group id are
+    // dropped; relies on select-all flags. csrf-token blanked; rptfrmDt/rpttoDt overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-15&rpttoDt=2026-06-16&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=P&hRptId=13058&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=1" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=Y&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_by_teller_svcgroup_queue_performance: {
+    label: "Daily Queue Performance By Teller By Service Group",
+    description:
+      "Queue performance for a single date, grouped by teller/staff member and service group " +
+      "(NOT broken down by individual service): customers served, waiting and serving times. " +
+      "Use when the user wants teller performance by service group on a day, without a " +
+      "service-level split.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11069",
+    // Teller list and service-group id dropped (select-all). No service breakdown here
+    // (hSelectAllServiceFlg=N, kept as captured). csrf-token blanked; rptDt overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-16&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=11069&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=1" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=Y&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_by_teller_svcgroup_queue_performance: {
+    label: "Monthly Queue Performance By Teller By Service Group",
+    description:
+      "Queue performance for a whole month, grouped by teller/staff member and service group " +
+      "(NOT broken down by individual service): customers served, waiting and serving times. " +
+      "Use when the user wants teller performance by service group over a month, without a " +
+      "service-level split.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12069",
+    // Teller list and service-group id dropped (select-all). No service breakdown
+    // (hSelectAllServiceFlg=N, as captured). csrf-token blanked; rptMth/rptYr overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=12069&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=1" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=Y&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_by_teller_svcgroup_queue_performance: {
+    label: "Periodically Queue Performance By Teller By Service Group",
+    description:
+      "Queue performance over a custom date range, grouped by teller/staff member and service " +
+      "group (NOT broken down by individual service): customers served, waiting and serving " +
+      "times. Use for teller performance by service group over a custom 'from X to Y' span, " +
+      "without a service-level split.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13069",
+    // Teller list and service-group id dropped (select-all). No service breakdown
+    // (hSelectAllServiceFlg=N, as captured). csrf-token blanked; rptfrmDt/rpttoDt overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-15&rpttoDt=2026-06-16&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on" +
+      "&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=P&hRptId=13069&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=1" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=Y&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_pattern_analysis_queue_performance: {
+    label: "Daily Queue Performance Pattern Analysis",
+    description:
+      "Queue performance for a single date broken down by time-of-day / hourly slot: ticket " +
+      "volume and waiting/serving times per hour. Use when the user asks about busy hours, " +
+      "peak times, hourly patterns, or how performance varies across the day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11033",
+    // Time-of-day slot ids dropped; relies on chkAllTod=on + hDayTimeSlotSelInd=Y
+    // (verify with test-timeslot.js). csrf-token blanked; rptDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-16&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=" +
+      "&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=D&hRptId=11033&hRptDataIn=3" +
+      "&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=" +
+      "&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_pattern_analysis_queue_performance: {
+    label: "Monthly Queue Performance Pattern Analysis",
+    description:
+      "Queue performance for a whole month broken down by time-of-day / hour (aggregated " +
+      "across the month): ticket volume and waiting/serving times per hour. Use for questions " +
+      "about busy/peak hours or hourly patterns over a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12016",
+    // Time-of-day slot ids dropped; relies on chkAllTod=on + hDayTimeSlotSelInd=Y.
+    // csrf-token blanked; rptMth/rptYr overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=" +
+      "&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=M&hRptId=12016&hRptDataIn=3" +
+      "&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=" +
+      "&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_pattern_analysis_queue_performance: {
+    label: "Periodically Queue Performance Pattern Analysis",
+    description:
+      "Queue performance over a custom date range broken down by time-of-day / hour " +
+      "(aggregated across the range): ticket volume and waiting/serving times per hour. Use " +
+      "for hourly/peak-time patterns over a custom 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13016",
+    // Time-of-day slot ids dropped; relies on chkAllTod=on + hDayTimeSlotSelInd=Y.
+    // csrf-token blanked; rptfrmDt/rpttoDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-15&rpttoDt=2026-06-16&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on" +
+      "&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=" +
+      "&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P" +
+      "&hRptId=13016&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=99023134" +
+      "&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N" +
+      "&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_pattern_analysis_by_service_queue_performance: {
+    label: "Daily Queue Performance Pattern Analysis By Service",
+    description:
+      "Queue performance for a single date broken down by time-of-day / hour AND by service " +
+      "type: ticket volume and waiting/serving times per hour per service. Use for questions " +
+      "about hourly/peak patterns split by service on a given day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11020",
+    // Service ids AND time-of-day slot ids dropped; relies on select-all flags
+    // (chkAllSvc=on + hSelectAllServiceFlg=Y, chkAllTod=on + hDayTimeSlotSelInd=Y).
+    // csrf-token blanked; rptDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-16&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=" +
+      "&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=D&hRptId=11020&hRptDataIn=3" +
+      "&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=" +
+      "&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_pattern_analysis_by_service_queue_performance: {
+    label: "Monthly Queue Performance Pattern Analysis By Service",
+    description:
+      "Queue performance for a whole month broken down by time-of-day / hour AND by service " +
+      "type (aggregated across the month): ticket volume and waiting/serving times per hour " +
+      "per service. Use for hourly/peak patterns split by service over a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12003",
+    // Service ids AND time-of-day slot ids dropped; relies on select-all flags.
+    // csrf-token blanked; rptMth/rptYr overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=" +
+      "&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=M&hRptId=12003&hRptDataIn=3" +
+      "&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=" +
+      "&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_pattern_analysis_by_service_queue_performance: {
+    label: "Periodically Queue Performance Pattern Analysis By Service",
+    description:
+      "Queue performance over a custom date range broken down by time-of-day / hour AND by " +
+      "service type (aggregated across the range): ticket volume and waiting/serving times per " +
+      "hour per service. Use for hourly/peak patterns split by service over a 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13003",
+    // Service ids AND time-of-day slot ids dropped; relies on select-all flags.
+    // csrf-token blanked; rptfrmDt/rpttoDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-15&rpttoDt=2026-06-16&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on" +
+      "&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=" +
+      "&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P" +
+      "&hRptId=13003&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=99023134" +
+      "&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N&hServSelInd=Y&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N" +
+      "&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
 };
 
 const PAYLOAD_TEMPLATE =
@@ -216,8 +1361,37 @@ export class Session {
   }
 }
 
-/** Build the form body. `period` is YYYY-MM-DD (daily) or YYYY-MM (monthly). */
-export function buildBody(report, period, csrf) {
+/** Set the date field(s) on a parsed body according to the report's period. */
+function setPeriodFields(p, report, args) {
+  if (report.period === "monthly") {
+    const [yr, mth] = String(args.period).split("-");
+    p.set("rptMth", mth || "");
+    p.set("rptYr", yr || "");
+  } else if (report.period === "range") {
+    p.set("rptfrmDt", args.from);
+    p.set("rpttoDt", args.to);
+  } else {
+    p.set("rptDt", args.period);
+  }
+}
+
+/** Build the form body. `args` is { period } for daily (YYYY-MM-DD) / monthly
+ *  (YYYY-MM), or { from, to } (YYYY-MM-DD each) for range reports.
+ *
+ *  If the report defines its own `payload` (a captured form string), that is used
+ *  verbatim and only csrf-token, hRptOut and the date are overridden — the report
+ *  already carries all its structural fields (service filters, flags, etc.).
+ *  Otherwise the shared PAYLOAD_TEMPLATE is used and the report's identifiers are
+ *  applied. */
+export function buildBody(report, args, csrf) {
+  if (report.payload) {
+    const p = new URLSearchParams(report.payload);
+    p.set("csrf-token", csrf || "");
+    p.set("hRptOut", "csv");
+    setPeriodFields(p, report, args);
+    return p.toString();
+  }
+
   const p = new URLSearchParams(PAYLOAD_TEMPLATE);
   p.set("csrf-token", csrf || "");
   p.set("hRptOut", "csv");
@@ -227,28 +1401,31 @@ export function buildBody(report, period, csrf) {
   p.set("hLoad1stRecId", report.hLoad1stRecId);
   p.set("hLoad1stRecNm", report.hLoad1stRecNm);
   if (report.period === "monthly") {
-    const [yr, mth] = String(period).split("-");
     p.delete("rptDt");
-    p.set("rptMth", mth || "");
-    p.set("rptYr", yr || "");
+    p.set("rptLevel", "");
+    p.set("rptSelFieldIdList", "");
+  } else if (report.period === "range") {
+    p.delete("rptDt");
+    p.delete("rptMth");
+    p.set("rptYr", "");
     p.set("rptLevel", "");
     p.set("rptSelFieldIdList", "");
   } else {
     p.delete("rptMth");
-    p.set("rptDt", period);
     p.set("rptYr", "");
     p.set("rptLevel", "1");
     p.set("rptSelFieldIdList", "0");
   }
+  setPeriodFields(p, report, args);
   return p.toString();
 }
 
 /** Low-level report POST. Returns the raw response details. */
-export async function postReportRaw(session, report, period) {
+export async function postReportRaw(session, report, args) {
   const resp = await request(BASE_URL + REPORT_PATH, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded", Cookie: session.cookie },
-    body: buildBody(report, period, session.csrf),
+    body: buildBody(report, args, session.csrf),
   });
   const ctype = (resp.headers["content-type"] || "").toLowerCase();
   const text = resp.text;
@@ -262,18 +1439,19 @@ export async function postReportRaw(session, report, period) {
 const session = new Session();
 
 /** High-level: ensure login, fetch + parse the report, retry once on expiry. */
-export async function fetchReport(report, period) {
+export async function fetchReport(report, args) {
   await session.ensure();
-  let r = await postReportRaw(session, report, period);
+  let r = await postReportRaw(session, report, args);
   if (r.looksLikeLogin) {
     session.cookie = "";
     await session.login();
-    r = await postReportRaw(session, report, period);
+    r = await postReportRaw(session, report, args);
   }
   if (!r.ok) return { error: "http_error", status: r.status, body_preview: r.text.slice(0, 300) };
   if (r.looksLikeLogin) {
     return { error: "session_expired", message: "Got HTML after re-login — csrf may be required or params invalid." };
   }
+  const period = report.period === "range" ? `${args.from}..${args.to}` : args.period;
   return { report: report.label, period, ...condense(r.text) };
 }
 
