@@ -1698,6 +1698,682 @@ export const REPORTS = {
       "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N" +
       "&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
   },
+  daily_counter_by_teller_queue_performance: {
+    label: "Daily Counter Performance By Service Distribution By Teller",
+    description:
+      "Counter-performance metrics for a single date, broken down by service type and by " +
+      "teller/staff member (this report groups by teller, NOT by counter). Use for per-teller " +
+      "counter/serving performance on a day, split by service.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11067",
+    // Despite the name, this groups by teller (hCounterSelInd=N, no counter selection).
+    // Service ids AND teller list dropped; relies on select-all flags. csrf-token blanked;
+    // rptDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-23&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=" +
+      "&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=D&hRptId=11067&hRptDataIn=3" +
+      "&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=" +
+      "&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_counter_by_teller_queue_performance: {
+    label: "Monthly Counter Performance By Service Distribution By Teller",
+    description:
+      "Counter-performance metrics for a whole month, broken down by service type and by " +
+      "teller/staff member (groups by teller, NOT by counter). Use for per-teller counter/" +
+      "serving performance over a month, split by service.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12067",
+    // Groups by teller (hCounterSelInd=N). Service ids AND teller list dropped; relies on
+    // select-all flags. csrf-token blanked; rptMth/rptYr overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=" +
+      "&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=M&hRptId=12067&hRptDataIn=3" +
+      "&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=" +
+      "&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_counter_by_teller_queue_performance: {
+    label: "Periodically Counter Performance By Service Distribution By Teller",
+    description:
+      "Counter-performance metrics over a custom date range, broken down by service type and " +
+      "by teller/staff member (groups by teller, NOT by counter). Use for per-teller counter/" +
+      "serving performance over a 'from X to Y' span, split by service.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13067",
+    // Groups by teller (hCounterSelInd=N). Service ids AND teller list dropped; relies on
+    // select-all flags. csrf-token blanked; rptfrmDt/rpttoDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-22&rpttoDt=2026-06-23&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on" +
+      "&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=" +
+      "&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P" +
+      "&hRptId=13067&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=99023134" +
+      "&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N&hServSelInd=Y&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N" +
+      "&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_counter_pattern_analysis_queue_performance: {
+    label: "Daily Counter Performance Pattern Analysis",
+    description:
+      "Counter-performance metrics for a single date broken down by time-of-day / hour: per-hour " +
+      "counter activity/throughput. Use for hourly/peak patterns of counter performance on a day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "11017",
+    // Time-of-day slot ids dropped; relies on chkAllTod=on + hDayTimeSlotSelInd=Y. No service/
+    // teller/counter selection. Note: no TimeFormatOpt, hSelTmFmt empty, hTmFmtSelInd=N (kept
+    // as captured). csrf-token blanked; rptDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-23&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=11017&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=" +
+      "&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=" +
+      "&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=" +
+      "&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=" +
+      "&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=" +
+      "&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=99023134" +
+      "&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N" +
+      "&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_counter_pattern_analysis_queue_performance: {
+    label: "Monthly Counter Performance Pattern Analysis",
+    description:
+      "Counter-performance metrics for a whole month broken down by time-of-day / hour " +
+      "(aggregated across the month): per-hour counter activity/throughput. Use for hourly/peak " +
+      "patterns of counter performance over a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "12027",
+    // Time-of-day slot ids dropped; relies on chkAllTod=on + hDayTimeSlotSelInd=Y. No service/
+    // teller/counter selection. Time-format off (no TimeFormatOpt, hSelTmFmt empty, hTmFmtSelInd=N).
+    // csrf-token blanked; rptMth/rptYr overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=1&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=12027&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=" +
+      "&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=" +
+      "&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=" +
+      "&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=" +
+      "&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=" +
+      "&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=" +
+      "&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=99023134" +
+      "&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N" +
+      "&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_counter_pattern_analysis_queue_performance: {
+    label: "Periodically Counter Performance Pattern Analysis",
+    description:
+      "Counter-performance metrics over a custom date range broken down by time-of-day / hour " +
+      "(aggregated across the range): per-hour counter activity/throughput. Use for hourly/peak " +
+      "patterns of counter performance over a 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13027",
+    // Time-of-day slot ids dropped; relies on chkAllTod=on + hDayTimeSlotSelInd=Y. No service/
+    // teller/counter selection. Time-format off (no TimeFormatOpt, hSelTmFmt empty, hTmFmtSelInd=N).
+    // csrf-token blanked; rptfrmDt/rpttoDt overridden per request.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-22&rpttoDt=2026-06-23&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=" +
+      "&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=13027&hRptDataIn=3" +
+      "&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=" +
+      "&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report" +
+      "&hLoad1stRecTyp=P&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_customer_rating_by_counter: {
+    label: "Daily Customer Rating Analysis By Counter",
+    description:
+      "Customer rating / feedback analysis for a single date, broken down by counter: ratings " +
+      "or satisfaction scores per counter. Use for questions about customer ratings, feedback, " +
+      "or satisfaction by counter on a given day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "21003",
+    counters: true, // by-counter report; get_report needs a `counters` arg
+    // Rating report class (hRptClassId=2, hServiceGrpSelPurpose=0, rating-specific
+    // hLoad1stRec*). No service dimension. Counter id list injected by buildBody from the
+    // `counters` arg (or QMS_COUNTERS env default). csrf-token blanked; rptDt overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-23&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=" +
+      "&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false&hRptType=D&hRptId=21003&hRptDataIn=3" +
+      "&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=" +
+      "&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=Y&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_customer_rating_by_counter: {
+    label: "Monthly Customer Rating Analysis By Counter",
+    description:
+      "Customer rating / feedback analysis for a whole month, broken down by counter: ratings " +
+      "or satisfaction scores per counter. Use for customer ratings/feedback/satisfaction by " +
+      "counter over a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "22003",
+    counters: true, // by-counter report; get_report needs a `counters` arg
+    // Rating report class (hRptClassId=2, hServiceGrpSelPurpose=0). Counter id list injected
+    // by buildBody from the `counters` arg. csrf-token blanked; rptMth/rptYr overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&csrf-token=" +
+      "&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false&hRptType=M&hRptId=22003&hRptDataIn=3" +
+      "&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=" +
+      "&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=" +
+      "&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=" +
+      "&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=" +
+      "&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=" +
+      "&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=" +
+      "&hLoad1stRecFlg=Y&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=Y&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_customer_rating_by_counter: {
+    label: "Periodically Customer Rating Analysis By Counter",
+    description:
+      "Customer rating / feedback analysis over a custom date range, broken down by counter: " +
+      "ratings or satisfaction scores per counter. Use for customer ratings/feedback/satisfaction " +
+      "by counter over a 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23003",
+    counters: true, // by-counter report; get_report needs a `counters` arg
+    // Rating report class (hRptClassId=2, hServiceGrpSelPurpose=0). Counter id list injected
+    // by buildBody from the `counters` arg. csrf-token blanked; rptfrmDt/rpttoDt overridden.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-22&rpttoDt=2026-06-23&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on" +
+      "&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=" +
+      "&hiddenTrxGrpTyp=&csrf-token=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P" +
+      "&hRptId=23003&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=Y&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N" +
+      "&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_counter_log: {
+    label: "Daily Counter Log",
+    description:
+      "Counter activity log for a single date: counter login/logout, break and event entries " +
+      "per counter. Use for questions about counter open/close times, breaks, or a raw " +
+      "activity log of counters on a given day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "51004",
+    // Log report class (hRptClassId=5) — different endpoint (CGenerateLogReport) and a smaller
+    // log-specific payload (hQELogType, hLogParam=Init, hQEFormatInd=N). csrf-token blanked;
+    // rptDt overridden per request.
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-23&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=51004&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=&hSelTeller=" +
+      "&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv&hSelBrhGrpType=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004&hLoad1stRecNm=Daily+Counter+Log" +
+      "&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N&hBrhGrpSelInd=N&hBrhInd=N" +
+      "&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0&hSelSvcGrpTypInd=N" +
+      "&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N&hServTypeSelInd=0" +
+      "&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N&hSelectAllTellerFlg=N" +
+      "&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_counter_log: {
+    label: "Monthly Counter Log",
+    description:
+      "Counter activity log for a whole month: counter login/logout, break and event entries " +
+      "per counter. Use for questions about counter open/close times, breaks, or a per-counter " +
+      "activity log over a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "52004",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=52004&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=&hSelTeller=" +
+      "&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv&hSelBrhGrpType=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004&hLoad1stRecNm=Daily+Counter+Log" +
+      "&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N&hBrhGrpSelInd=N&hBrhInd=N" +
+      "&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0&hSelSvcGrpTypInd=N" +
+      "&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N&hServTypeSelInd=0" +
+      "&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N&hSelectAllTellerFlg=N" +
+      "&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_counter_log: {
+    label: "Periodically Counter Log",
+    description:
+      "Counter activity log over a custom date range: counter login/logout, break and event " +
+      "entries per counter. Use for questions about counter open/close times, breaks, or a " +
+      "per-counter activity log over a 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53004",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-22&rpttoDt=2026-06-23&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53004&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_customer_log: {
+    label: "Daily Customer Log",
+    description:
+      "Customer activity log for a single date: raw per-customer ticket/event entries. Use for " +
+      "questions about individual customer ticket events or a raw customer activity log on a day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "51014",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-23&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=51014&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=&hSelTeller=" +
+      "&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv&hSelBrhGrpType=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004&hLoad1stRecNm=Daily+Counter+Log" +
+      "&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N&hBrhGrpSelInd=N&hBrhInd=N" +
+      "&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0&hSelSvcGrpTypInd=N" +
+      "&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N&hServTypeSelInd=0" +
+      "&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N&hSelectAllTellerFlg=N" +
+      "&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_customer_log: {
+    label: "Monthly Customer Log",
+    description:
+      "Customer activity log for a whole month: raw per-customer ticket/event entries. Use for " +
+      "questions about individual customer ticket events or a raw customer activity log over a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "52014",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=52014&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=&hSelTeller=" +
+      "&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv&hSelBrhGrpType=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004&hLoad1stRecNm=Daily+Counter+Log" +
+      "&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N&hBrhGrpSelInd=N&hBrhInd=N" +
+      "&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0&hSelSvcGrpTypInd=N" +
+      "&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N&hServTypeSelInd=0" +
+      "&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N&hSelectAllTellerFlg=N" +
+      "&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_customer_log: {
+    label: "Periodically Customer Log",
+    description:
+      "Customer activity log over a custom date range: raw per-customer ticket/event entries. " +
+      "Use for individual customer ticket events or a raw customer activity log over a 'from X " +
+      "to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53014",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-22&rpttoDt=2026-06-23&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53014&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_customer_rating_log: {
+    label: "Daily Customer Rating Log",
+    description:
+      "Customer rating log for a single date: raw per-rating entries (each customer's rating/" +
+      "feedback record). Use for a raw log of individual customer ratings/feedback on a day.",
+    period: "daily", // input: YYYY-MM-DD
+    hRptId: "51008",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-23&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=51008&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=&hSelTeller=" +
+      "&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv&hSelBrhGrpType=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004&hLoad1stRecNm=Daily+Counter+Log" +
+      "&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N&hBrhGrpSelInd=N&hBrhInd=N" +
+      "&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0&hSelSvcGrpTypInd=N" +
+      "&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N&hServTypeSelInd=0" +
+      "&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N&hSelectAllTellerFlg=N" +
+      "&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_customer_rating_log: {
+    label: "Monthly Customer Rating Log",
+    description:
+      "Customer rating log for a whole month: raw per-rating entries (each customer's rating/" +
+      "feedback record). Use for a raw log of individual customer ratings/feedback over a month.",
+    period: "monthly", // input: YYYY-MM
+    hRptId: "52008",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=52008&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=&hSelTeller=" +
+      "&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv&hSelBrhGrpType=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004&hLoad1stRecNm=Daily+Counter+Log" +
+      "&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N&hBrhGrpSelInd=N&hBrhInd=N" +
+      "&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0&hSelSvcGrpTypInd=N" +
+      "&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N&hServTypeSelInd=0" +
+      "&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N&hSelectAllTellerFlg=N" +
+      "&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_customer_rating_log: {
+    label: "Periodically Customer Rating Log",
+    description:
+      "Customer rating log over a custom date range: raw per-rating entries (each customer's " +
+      "rating/feedback record). Use for a raw log of individual customer ratings/feedback over " +
+      "a 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53008",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-22&rpttoDt=2026-06-23&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53008&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_customer_ticket_log: {
+    label: "Daily Customer Ticket Log",
+    description:
+      "Customer ticket log for a single day: raw per-ticket entries (each ticket issued, " +
+      "its service, counter, times). Use for a raw log of individual customer tickets on a " +
+      "specific day.",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51010",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-23&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51010&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_customer_ticket_log: {
+    label: "Monthly Customer Ticket Log",
+    description:
+      "Customer ticket log for a whole month: raw per-ticket entries (each ticket issued, " +
+      "its service, counter, times). Use for a raw log of individual customer tickets across " +
+      "a month.",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52010",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52010&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_customer_ticket_log: {
+    label: "Periodically Customer Ticket Log",
+    description:
+      "Customer ticket log over a custom date range: raw per-ticket entries (each ticket " +
+      "issued, its service, counter, times). Use for a raw log of individual customer tickets " +
+      "over a 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53010",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-22&rpttoDt=2026-06-23&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53010&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
 };
 
 const PAYLOAD_TEMPLATE =
@@ -1939,7 +2615,8 @@ export function buildBody(report, args, csrf) {
 
 /** Low-level report POST. Returns the raw response details. */
 export async function postReportRaw(session, report, args) {
-  const resp = await request(BASE_URL + REPORT_PATH, {
+  // Most reports POST to CGenerateReport; some (e.g. Log reports) override `path`.
+  const resp = await request(BASE_URL + (report.path || REPORT_PATH), {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded", Cookie: session.cookie },
     body: buildBody(report, args, session.csrf),

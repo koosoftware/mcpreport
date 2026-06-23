@@ -147,6 +147,59 @@ Available reports:
 - periodic_counter_by_service_queue_performance — "Periodically Counter Performance By Service
   Distribution By Counter". Same as above but over a custom date range. Inputs: date_from and
   date_to (YYYY-MM-DD) AND `counters`. Also requires counters — ask the user if not given.
+- daily_counter_by_teller_queue_performance — "Daily Counter Performance By Service
+  Distribution By Teller". Counter-performance metrics for a single date, by service and by
+  TELLER (groups by teller, not counter — no `counters` input). Input: a date as YYYY-MM-DD.
+  Use for per-teller counter/serving performance on a day.
+- monthly_counter_by_teller_queue_performance — "Monthly Counter Performance By Service
+  Distribution By Teller". Same as above but over a whole month. Input: a month as YYYY-MM.
+- periodic_counter_by_teller_queue_performance — "Periodically Counter Performance By Service
+  Distribution By Teller". Same as above but over a custom date range. Inputs: date_from and
+  date_to (YYYY-MM-DD).
+- daily_counter_pattern_analysis_queue_performance — "Daily Counter Performance Pattern
+  Analysis". Counter-performance for a single date by time-of-day / hour (no counter input).
+  Input: a date as YYYY-MM-DD. Use for hourly/peak patterns of counter performance on a day.
+- monthly_counter_pattern_analysis_queue_performance — "Monthly Counter Performance Pattern
+  Analysis". Same as above but over a whole month. Input: a month as YYYY-MM.
+- periodic_counter_pattern_analysis_queue_performance — "Periodically Counter Performance
+  Pattern Analysis". Same as above but over a custom date range. Inputs: date_from and
+  date_to (YYYY-MM-DD).
+- daily_customer_rating_by_counter — "Daily Customer Rating Analysis By Counter". Customer
+  rating / feedback / satisfaction for a single date, by counter. Inputs: a date (YYYY-MM-DD)
+  AND `counters` (which counter number(s)). REQUIRES counters — if the user hasn't said which
+  counter(s), ask them first. Use for customer ratings/feedback/satisfaction questions.
+- monthly_customer_rating_by_counter — "Monthly Customer Rating Analysis By Counter". Same as
+  above but over a whole month. Inputs: a month (YYYY-MM) AND `counters`. Also requires counters.
+- periodic_customer_rating_by_counter — "Periodically Customer Rating Analysis By Counter".
+  Same as above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD) AND
+  `counters`. Also requires counters.
+- daily_counter_log — "Daily Counter Log". Raw counter activity log for a single date (counter
+  login/logout, breaks, events). Input: a date as YYYY-MM-DD. Use for questions about counter
+  open/close times, breaks, or a per-counter activity log.
+- monthly_counter_log — "Monthly Counter Log". Same as above but over a whole month. Input: a
+  month as YYYY-MM.
+- periodic_counter_log — "Periodically Counter Log". Same as above but over a custom date
+  range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_customer_log — "Daily Customer Log". Raw per-customer ticket/event activity log for a
+  single date. Input: a date as YYYY-MM-DD. Use for individual customer ticket events / a raw
+  customer activity log.
+- monthly_customer_log — "Monthly Customer Log". Same as above but over a whole month. Input: a
+  month as YYYY-MM.
+- periodic_customer_log — "Periodically Customer Log". Same as above but over a custom date
+  range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_customer_rating_log — "Daily Customer Rating Log". Raw log of individual customer
+  rating/feedback entries for a single date. Input: a date as YYYY-MM-DD. Use for a raw log of
+  customer ratings (vs the aggregated "Customer Rating Analysis By Counter" report).
+- monthly_customer_rating_log — "Monthly Customer Rating Log". Same as above but over a whole
+  month. Input: a month as YYYY-MM.
+- periodic_customer_rating_log — "Periodically Customer Rating Log". Same as above but over a
+  custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_customer_ticket_log — "Daily Customer Ticket Log". Raw per-ticket log for one day:
+  each ticket issued with its service, counter and times. Input: a date as YYYY-MM-DD.
+- monthly_customer_ticket_log — "Monthly Customer Ticket Log". Same as above but over a whole
+  month. Input: a month as YYYY-MM.
+- periodic_customer_ticket_log — "Periodically Customer Ticket Log". Same as above but over a
+  custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
 
 Pick the report by granularity:
 - a specific single day -> daily_queue_performance, period = YYYY-MM-DD
