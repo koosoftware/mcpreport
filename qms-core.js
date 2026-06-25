@@ -2374,6 +2374,705 @@ export const REPORTS = {
       "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
       "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
   },
+  daily_idle_log: {
+    label: "Daily Idle Log",
+    description:
+      "Idle log for a single day: raw entries of counter/teller idle periods (when a " +
+      "counter was open but not serving). Use for a raw log of idle time on a specific day.",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51009",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-25&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51009&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_idle_log: {
+    label: "Monthly Idle Log",
+    description:
+      "Idle log for a whole month: raw entries of counter/teller idle periods (when a " +
+      "counter was open but not serving). Use for a raw log of idle time across a month.",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52009",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52009&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_idle_log: {
+    label: "Periodically Idle Log",
+    description:
+      "Idle log over a custom date range: raw entries of counter/teller idle periods (when a " +
+      "counter was open but not serving). Use for a raw log of idle time over a 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53009",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-24&rpttoDt=2026-06-25&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53009&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_question_rating_log: {
+    label: "Daily Question Rating Log",
+    description:
+      "Question rating log for a single day: raw per-response entries of feedback-survey " +
+      "questions and the ratings/answers customers gave. Use for a raw log of survey question " +
+      "responses on a specific day.",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51007",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-25&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51007&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_question_rating_log: {
+    label: "Monthly Question Rating Log",
+    description:
+      "Question rating log for a whole month: raw per-response entries of feedback-survey " +
+      "questions and the ratings/answers customers gave. Use for a raw log of survey question " +
+      "responses across a month.",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52007",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52007&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_question_rating_log: {
+    label: "Periodically Question Rating Log",
+    description:
+      "Question rating log over a custom date range: raw per-response entries of feedback-survey " +
+      "questions and the ratings/answers customers gave. Use for a raw log of survey question " +
+      "responses over a 'from X to Y' span.",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53007",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-24&rpttoDt=2026-06-25&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53007&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=N&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_queue_log: {
+    label: "Daily Queue Log",
+    description:
+      "Queue log for a single day: raw per-ticket queue events (each ticket's queueing " +
+      "lifecycle — issued, called, served, with timestamps). Use for a raw event-level log of " +
+      "the queue on a specific day. (hQEFormatInd=Y.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51006",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-25&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51006&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_queue_log: {
+    label: "Monthly Queue Log",
+    description:
+      "Queue log for a whole month: raw per-ticket queue events (each ticket's queueing " +
+      "lifecycle — issued, called, served, with timestamps). Use for a raw event-level log of " +
+      "the queue across a month. (hQEFormatInd=Y.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52006",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52006&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_queue_log: {
+    label: "Periodically Queue Log",
+    description:
+      "Queue log over a custom date range: raw per-ticket queue events (each ticket's queueing " +
+      "lifecycle — issued, called, served, with timestamps). Use for a raw event-level log of " +
+      "the queue over a 'from X to Y' span. (hQEFormatInd=Y.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53006",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-24&rpttoDt=2026-06-25&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53006&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_rating_remark_log: {
+    label: "Daily Rating Remark Log",
+    description:
+      "Rating remark log for a single day: raw entries of the free-text remarks/comments " +
+      "customers left along with their feedback ratings. Use for a raw log of rating comments " +
+      "on a specific day. (hQEFormatInd=Y.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51015",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-25&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51015&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_rating_remark_log: {
+    label: "Monthly Rating Remark Log",
+    description:
+      "Rating remark log for a whole month: raw entries of the free-text remarks/comments " +
+      "customers left along with their feedback ratings. Use for a raw log of rating comments " +
+      "across a month. (hQEFormatInd=Y.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52015",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52015&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_rating_remark_log: {
+    label: "Periodically Rating Remark Log",
+    description:
+      "Rating remark log over a custom date range: raw entries of the free-text remarks/comments " +
+      "customers left along with their feedback ratings. Use for a raw log of rating comments " +
+      "over a 'from X to Y' span. (hQEFormatInd=Y.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53015",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-24&rpttoDt=2026-06-25&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53015&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_service_log: {
+    label: "Daily Service Log",
+    description:
+      "Service log for a single day: raw per-transaction entries of services rendered (each " +
+      "service event with its counter, teller and times). Use for a raw log of services on a " +
+      "specific day. (hQEFormatInd=Y.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51003",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-25&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51003&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_service_log: {
+    label: "Monthly Service Log",
+    description:
+      "Service log for a whole month: raw per-transaction entries of services rendered (each " +
+      "service event with its counter, teller and times). Use for a raw log of services across " +
+      "a month. (hQEFormatInd=Y.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52003",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52003&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_service_log: {
+    label: "Periodically Service Log",
+    description:
+      "Service log over a custom date range: raw per-transaction entries of services rendered " +
+      "(each service event with its counter, teller and times). Use for a raw log of services " +
+      "over a 'from X to Y' span. (hQEFormatInd=Y.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53003",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-24&rpttoDt=2026-06-25&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53003&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_sms_log: {
+    label: "Daily SMS Log",
+    description:
+      "SMS log for a single day: raw entries of SMS notifications sent to customers (e.g. " +
+      "ticket/queue alerts), with recipient, message and timestamp. Use for a raw log of SMS " +
+      "notifications on a specific day. (hQEFormatInd=Y.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51011",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-25&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51011&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_sms_log: {
+    label: "Monthly SMS Log",
+    description:
+      "SMS log for a whole month: raw entries of SMS notifications sent to customers (e.g. " +
+      "ticket/queue alerts), with recipient, message and timestamp. Use for a raw log of SMS " +
+      "notifications across a month. (hQEFormatInd=Y.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52011",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52011&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_sms_log: {
+    label: "Periodically SMS Log",
+    description:
+      "SMS log over a custom date range: raw entries of SMS notifications sent to customers " +
+      "(e.g. ticket/queue alerts), with recipient, message and timestamp. Use for a raw log of " +
+      "SMS notifications over a 'from X to Y' span. (hQEFormatInd=Y.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53011",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-24&rpttoDt=2026-06-25&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53011&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_ticket_log: {
+    label: "Daily Ticket Log",
+    description:
+      "Ticket log for a single day: raw per-ticket entries covering every ticket issued by the " +
+      "system, with its number, service, status and timestamps. Use for a raw log of all tickets " +
+      "on a specific day. (Distinct from Customer Ticket Log. hQEFormatInd=Y.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51002",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-25&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51002&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_ticket_log: {
+    label: "Monthly Ticket Log",
+    description:
+      "Ticket log for a whole month: raw per-ticket entries covering every ticket issued by the " +
+      "system, with its number, service, status and timestamps. Use for a raw log of all tickets " +
+      "across a month. (Distinct from Customer Ticket Log. hQEFormatInd=Y.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52002",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52002&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_ticket_log: {
+    label: "Periodically Ticket Log",
+    description:
+      "Ticket log over a custom date range: raw per-ticket entries covering every ticket issued " +
+      "by the system, with its number, service, status and timestamps. Use for a raw log of all " +
+      "tickets over a 'from X to Y' span. (Distinct from Customer Ticket Log. hQEFormatInd=Y.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53002",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-24&rpttoDt=2026-06-25&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53002&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_transaction_log: {
+    label: "Daily Transaction Log",
+    description:
+      "Transaction log for a single day: raw per-transaction entries of each service transaction " +
+      "processed at a counter (with teller, service, status and times). Use for a raw log of all " +
+      "transactions on a specific day. (hQEFormatInd=Y.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51013",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-25&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51013&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_transaction_log: {
+    label: "Monthly Transaction Log",
+    description:
+      "Transaction log for a whole month: raw per-transaction entries of each service transaction " +
+      "processed at a counter (with teller, service, status and times). Use for a raw log of all " +
+      "transactions across a month. (hQEFormatInd=Y.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52013",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52013&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_transaction_log: {
+    label: "Periodically Transaction Log",
+    description:
+      "Transaction log over a custom date range: raw per-transaction entries of each service " +
+      "transaction processed at a counter (with teller, service, status and times). Use for a raw " +
+      "log of all transactions over a 'from X to Y' span. (hQEFormatInd=Y.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53013",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-24&rpttoDt=2026-06-25&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53013&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  daily_user_log: {
+    label: "Daily User Log",
+    description:
+      "User log for a single day: raw entries of staff/operator user activity (logins, " +
+      "actions and counter/teller sessions) with timestamps. Use for a raw log of staff user " +
+      "activity on a specific day. (hQEFormatInd=Y.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "51005",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-25&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=D&hRptId=51005&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  monthly_user_log: {
+    label: "Monthly User Log",
+    description:
+      "User log for a whole month: raw entries of staff/operator user activity (logins, " +
+      "actions and counter/teller sessions) with timestamps. Use for a raw log of staff user " +
+      "activity across a month. (hQEFormatInd=Y.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "52005",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on" +
+      "&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on" +
+      "&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5&hRptSelBrhCode=" +
+      "&hRptIsCorp=false&hRptType=M&hRptId=52005&hSelBrh=&hSelBrhGrp=&hSelServ=&hSelSvcGrp=" +
+      "&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
+  periodic_user_log: {
+    label: "Periodically User Log",
+    description:
+      "User log over a custom date range: raw entries of staff/operator user activity (logins, " +
+      "actions and counter/teller sessions) with timestamps. Use for a raw log of staff user " +
+      "activity over a 'from X to Y' span. (hQEFormatInd=Y.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "53005",
+    path: "/QMS700i/servlet/my.com.gms.qms.rpt.servlets.CGenerateLogReport",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-24&rpttoDt=2026-06-25&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=5" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=53005&hSelBrh=&hSelBrhGrp=&hSelServ=" +
+      "&hSelSvcGrp=&hSelTeller=&hSelCounter=&hSelTgtWt=&hQELogType=&hLogParam=Init&hRptOut=csv" +
+      "&hSelBrhGrpType=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=51004" +
+      "&hLoad1stRecNm=Daily+Counter+Log&hLoad1stRecTyp=D&hQEFormatInd=Y&hBrhGrpTypeSelInd=N" +
+      "&hBrhGrpSelInd=N&hBrhInd=N&hBrhTypeSelInd=0&hBrhGrpSelectionType=0&hBranchGrpSelPurpose=0" +
+      "&hSelSvcGrpTypInd=N&hSvcGrpSelInd=N&hServSelInd=N&hTellerSelInd=N&hCounterSelInd=N" +
+      "&hServTypeSelInd=0&hSvcGrpSelectionType=0&hServiceGrpSelPurpose=0&hTellerTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
+      "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
+  },
 };
 
 const PAYLOAD_TEMPLATE =

@@ -200,6 +200,60 @@ Available reports:
   month. Input: a month as YYYY-MM.
 - periodic_customer_ticket_log — "Periodically Customer Ticket Log". Same as above but over a
   custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_idle_log — "Daily Idle Log". Raw log of counter/teller idle periods (counter open but
+  not serving) for one day. Input: a date as YYYY-MM-DD.
+- monthly_idle_log — "Monthly Idle Log". Same as above but over a whole month. Input: a month
+  as YYYY-MM.
+- periodic_idle_log — "Periodically Idle Log". Same as above but over a custom date range.
+  Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_question_rating_log — "Daily Question Rating Log". Raw per-response log of feedback-
+  survey questions and the ratings/answers customers gave, for one day. Input: a date YYYY-MM-DD.
+- monthly_question_rating_log — "Monthly Question Rating Log". Same as above but over a whole
+  month. Input: a month as YYYY-MM.
+- periodic_question_rating_log — "Periodically Question Rating Log". Same as above but over a
+  custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_queue_log — "Daily Queue Log". Raw event-level log of each ticket's queueing lifecycle
+  (issued/called/served with timestamps) for one day. Input: a date as YYYY-MM-DD.
+- monthly_queue_log — "Monthly Queue Log". Same as above but over a whole month. Input: a month
+  as YYYY-MM.
+- periodic_queue_log — "Periodically Queue Log". Same as above but over a custom date range.
+  Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_remark_log — "Daily Rating Remark Log". Raw log of free-text remarks/comments
+  customers left with their feedback ratings, for one day. Input: a date as YYYY-MM-DD.
+- monthly_rating_remark_log — "Monthly Rating Remark Log". Same as above but over a whole month.
+  Input: a month as YYYY-MM.
+- periodic_rating_remark_log — "Periodically Rating Remark Log". Same as above but over a custom
+  date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_service_log — "Daily Service Log". Raw per-transaction log of services rendered (each
+  service event with counter, teller, times) for one day. Input: a date as YYYY-MM-DD.
+- monthly_service_log — "Monthly Service Log". Same as above but over a whole month. Input: a
+  month as YYYY-MM.
+- periodic_service_log — "Periodically Service Log". Same as above but over a custom date range.
+  Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_sms_log — "Daily SMS Log". Raw log of SMS notifications sent to customers (recipient,
+  message, timestamp) for one day. Input: a date as YYYY-MM-DD.
+- monthly_sms_log — "Monthly SMS Log". Same as above but over a whole month. Input: a month as
+  YYYY-MM.
+- periodic_sms_log — "Periodically SMS Log". Same as above but over a custom date range. Inputs:
+  date_from and date_to (YYYY-MM-DD).
+- daily_ticket_log — "Daily Ticket Log". Raw log of every ticket issued (number, service, status,
+  timestamps) for one day. Distinct from Customer Ticket Log. Input: a date as YYYY-MM-DD.
+- monthly_ticket_log — "Monthly Ticket Log". Same as above but over a whole month. Input: a month
+  as YYYY-MM.
+- periodic_ticket_log — "Periodically Ticket Log". Same as above but over a custom date range.
+  Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_transaction_log — "Daily Transaction Log". Raw per-transaction log of each service
+  transaction processed at a counter (teller, service, status, times) for one day. Input: a date YYYY-MM-DD.
+- monthly_transaction_log — "Monthly Transaction Log". Same as above but over a whole month.
+  Input: a month as YYYY-MM.
+- periodic_transaction_log — "Periodically Transaction Log". Same as above but over a custom date
+  range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_user_log — "Daily User Log". Raw log of staff/operator user activity (logins, actions,
+  counter sessions with timestamps) for one day. Input: a date as YYYY-MM-DD.
+- monthly_user_log — "Monthly User Log". Same as above but over a whole month. Input: a month as
+  YYYY-MM.
+- periodic_user_log — "Periodically User Log". Same as above but over a custom date range. Inputs:
+  date_from and date_to (YYYY-MM-DD).
 
 Pick the report by granularity:
 - a specific single day -> daily_queue_performance, period = YYYY-MM-DD
