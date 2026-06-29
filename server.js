@@ -16,6 +16,8 @@ import { z } from "zod";
 import {
   REPORTS,
   fetchReport,
+  searchReports,
+  inputFor,
   today,
   thisMonth,
   isIsoDate,
@@ -24,34 +26,56 @@ import {
   DEFAULT_COUNTERS,
 } from "./qms-core.js";
 
-const server = new McpServer({ name: "qms-report", version: "3.2.0" });
+const server = new McpServer({ name: "qms-report", version: "4.0.0" });
 
 function jsonContent(obj) {
   return { content: [{ type: "text", text: JSON.stringify(obj, null, 2) }] };
 }
 
-const inputFor = (r) =>
-  r.period === "monthly"
-    ? "month YYYY-MM"
-    : r.period === "range"
-    ? "date_from + date_to (YYYY-MM-DD)"
-    : "date YYYY-MM-DD";
+// --- Two-stage routing -------------------------------------------------------
+// With 130+ reports, embedding the whole catalog in get_report's description
+// overwhelmed small models (the schema alone was ~12k tokens). Instead the model
+// first calls find_reports with the user's plain-language need to get a short
+// shortlist of matching report keys, then calls get_report with the chosen key.
 
-const reportCatalog = Object.entries(REPORTS)
-  .map(([key, r]) => `  - ${key} (input: ${inputFor(r)}): ${r.description || r.label}`)
-  .join("\n");
+server.tool(
+  "find_reports",
+  "STEP 1 — find the right report. Given the user's plain-language question about " +
+    "queue/branch performance, tickets, waiting/serving times, counters, tellers, or " +
+    "customer ratings/feedback, return a short shortlist of matching QMS report keys " +
+    "with the input each one needs. Call this FIRST whenever you are not 100% sure of " +
+    "the exact report key, then call get_report with the best match. Example queries: " +
+    "'monthly customer rating by teller', 'daily idle log', 'queue performance by service'.",
+  {
+    query: z.string().describe("The user's need in plain language, e.g. 'monthly rating by teller'."),
+    limit: z.number().int().optional().describe("How many matches to return (default 6)."),
+  },
+  async ({ query, limit }) => {
+    const matches = searchReports(query, limit || 6);
+    if (!matches.length) {
+      return jsonContent({
+        matches: [],
+        message:
+          "No report matched. Try simpler keywords (e.g. 'queue performance', 'rating by teller', " +
+          "'idle log'), or call list_reports to browse all available report keys.",
+      });
+    }
+    return jsonContent({
+      matches: matches.map(({ key, label, input, description }) => ({ key, label, input, description })),
+      next: "Pick the best `key` and call get_report with it (plus period/date_from/date_to).",
+    });
+  }
+);
 
 server.tool(
   "get_report",
-  "Fetch a QMS queue-management report as parsed rows and analyze it to answer the " +
-    "user's question. Call this whenever the user asks about queue/branch performance, " +
-    "tickets, no-shows, waiting or serving times. The server logs in automatically.\n" +
-    "Available reports:\n" +
-    reportCatalog +
-    "\nDaily/monthly reports: pass `period`. Range reports: pass `date_from` and " +
-    "`date_to`. Defaults to the current day/month.",
+  "STEP 2 — fetch a report. Fetch a QMS report as parsed rows and analyze it to answer " +
+    "the user's question. Pass the exact `report` key (use find_reports first if unsure). " +
+    "Daily reports: pass `period` as YYYY-MM-DD. Monthly reports: `period` as YYYY-MM. " +
+    "Range/periodic reports: pass `date_from` and `date_to`. Defaults to current day/month. " +
+    "The server logs in automatically.",
   {
-    report: z.string().describe("Report key from the available reports list, e.g. 'daily_queue_performance'."),
+    report: z.string().describe("Exact report key (from find_reports), e.g. 'monthly_customer_rating_by_teller'."),
     period: z
       .string()
       .optional()
@@ -66,7 +90,12 @@ server.tool(
   async ({ report, period = "", date_from = "", date_to = "", counters = "" }) => {
     const def = REPORTS[report];
     if (!def) {
-      return jsonContent({ error: "invalid_report", message: `'${report}' is not valid.`, available: Object.keys(REPORTS) });
+      // Don't dump all keys (there are 130+). Suggest the closest matches instead.
+      return jsonContent({
+        error: "invalid_report",
+        message: `'${report}' is not a valid report key. Call find_reports with the user's question to get valid keys.`,
+        suggestions: searchReports(report, 6).map((m) => m.key),
+      });
     }
 
     // Per-counter reports need an explicit counter list (no select-all). If none is

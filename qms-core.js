@@ -4897,6 +4897,100 @@ export const thisMonth = () => new Date().toISOString().slice(0, 7);
 export const isIsoDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s) && !Number.isNaN(Date.parse(s));
 export const isYearMonth = (s) => /^\d{4}-\d{2}$/.test(s);
 
+/** Human-readable input shape for a report (used by find_reports / list_reports). */
+export const inputFor = (r) =>
+  r.period === "monthly"
+    ? "month YYYY-MM"
+    : r.period === "range"
+    ? "date_from + date_to (YYYY-MM-DD)"
+    : "date YYYY-MM-DD";
+
+// Words too generic to help disambiguate; ignored when scoring search queries.
+const SEARCH_STOPWORDS = new Set([
+  "the", "a", "an", "of", "for", "and", "or", "to", "in", "on", "by", "with",
+  "report", "reports", "show", "me", "give", "get", "find", "what", "whats",
+  "how", "many", "is", "are", "was", "were", "do", "does", "did", "my", "our",
+  "this", "that", "please", "want", "need", "can", "you", "qms", "analysis",
+  "rating", "ratings", // very common across the Customer Rating class — low signal
+]);
+
+/**
+ * Build a lightweight search index over the REPORTS registry. One entry per
+ * report with a tokenized bag of words from its key + label + description, plus
+ * period/grain hints. Built once at module load.
+ */
+const SEARCH_INDEX = Object.entries(REPORTS).map(([key, r]) => {
+  const keyWords = key.split(/[_\s]+/).filter(Boolean);
+  const labelWords = (r.label || "").toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  const descWords = (r.description || "").toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  return {
+    key,
+    label: r.label || key,
+    period: r.period || "daily",
+    description: r.description || r.label || "",
+    // weighted: key + label tokens count more than description tokens
+    strong: new Set([...keyWords, ...labelWords]),
+    weak: new Set(descWords),
+  };
+});
+
+function tokenizeQuery(q) {
+  return String(q || "")
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((t) => t && t.length > 1 && !SEARCH_STOPWORDS.has(t));
+}
+
+// Map words a user might say to the grain a report covers.
+const PERIOD_HINTS = {
+  daily: "daily", day: "daily", today: "daily", yesterday: "daily",
+  monthly: "monthly", month: "monthly",
+  periodically: "range", periodic: "range", range: "range",
+  between: "range", from: "range", weekly: "range", week: "range",
+};
+
+/**
+ * Score every report against a natural-language query and return the top `limit`
+ * matches (default 6). Keeps the LLM's tool schema tiny: instead of embedding all
+ * 130+ reports in get_report's description, the model calls find_reports first.
+ *
+ * Returns: [{ key, label, input, description, score }]
+ */
+export function searchReports(query, limit = 6) {
+  const tokens = tokenizeQuery(query);
+  // Detect a requested grain (daily/monthly/range) to gently bias ties.
+  let wantPeriod = null;
+  for (const w of String(query || "").toLowerCase().split(/[^a-z0-9]+/)) {
+    if (PERIOD_HINTS[w]) { wantPeriod = PERIOD_HINTS[w]; break; }
+  }
+
+  const scored = SEARCH_INDEX.map((e) => {
+    let score = 0;
+    for (const t of tokens) {
+      if (e.strong.has(t)) score += 3;
+      else if (e.weak.has(t)) score += 1;
+      else {
+        // partial / substring match (e.g. "teller" vs "tellers", "perf" vs "performance")
+        for (const w of e.strong) { if (w.includes(t) || t.includes(w)) { score += 1.5; break; } }
+      }
+    }
+    if (wantPeriod && e.period === wantPeriod) score += 1.5;
+    return { e, score };
+  });
+
+  return scored
+    .filter((s) => s.score > 0)
+    .sort((a, b) => b.score - a.score || a.e.key.localeCompare(b.e.key))
+    .slice(0, Math.max(1, limit))
+    .map(({ e, score }) => ({
+      key: e.key,
+      label: e.label,
+      input: inputFor(REPORTS[e.key]),
+      description: e.description,
+      score: Math.round(score * 10) / 10,
+    }));
+}
+
 /** Parse a counter spec like "1,3,5" or "1-15" or "1-5,8" into a sorted number[]. */
 export function parseCounters(spec) {
   if (!spec) return [];
