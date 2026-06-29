@@ -13,16 +13,22 @@ const arg = process.argv.slice(2).join(" ").trim();
 const queries = arg
   ? [arg]
   : [
-      "monthly customer rating by teller",
-      "daily idle log",
+      // sibling cases that used to tie — the right report should now rank #1
       "queue performance by service",
-      "periodically rating performance by question",
-      "how many tickets today",
-      "counter performance this month",
-      "waiting time distribution",
+      "queue performance by service group",
+      "rating distribution by teller",
+      "rating distribution by teller by question",
+      "rating performance by question",
+      "rating distribution by question",
+      // grain should float the right period to the top
+      "monthly customer rating by teller",
+      "transaction log this month",
+      // general
+      "daily idle log",
       "sms log last month",
+      "customer rating by counter",
       "rating distribution pattern by hour",
-      "transaction log",
+      "how many tickets today",
     ];
 
 for (const q of queries) {

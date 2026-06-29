@@ -4914,23 +4914,43 @@ const SEARCH_STOPWORDS = new Set([
   "rating", "ratings", // very common across the Customer Rating class — low signal
 ]);
 
+// AXES = the "breakdown" dimensions that stack (by_teller, by_teller_by_question,
+// by_day_by_question, by_question_by_ict, ...). The set of axes a report carries is
+// its strongest fingerprint, so we reward exact-axis matches and penalise reports
+// that carry an axis the user didn't ask for (this is what separates by_teller from
+// by_teller_by_question — the most common confusion).
+const AXIS_WORDS = new Set([
+  "counter", "teller", "service", "group", "question", "answer", "ict", "day", "hour",
+]);
+
+// High-signal subject/type words. A hit on one of these is worth more than a generic
+// word so e.g. "performance" doesn't tie with a "distribution" or "log" report.
+const DISCRIMINATOR_WORDS = new Set([
+  ...AXIS_WORDS,
+  "queue", "idle", "sms", "transaction", "ticket", "customer", "user",
+  "performance", "distribution", "pattern", "log", "remark", "summary", "qos",
+]);
+
 /**
  * Build a lightweight search index over the REPORTS registry. One entry per
- * report with a tokenized bag of words from its key + label + description, plus
- * period/grain hints. Built once at module load.
+ * report with a tokenized bag of words from its key + label + description, the
+ * set of breakdown axes it carries, a flattened text blob (for phrase/bigram
+ * matching), and its period/grain. Built once at module load.
  */
 const SEARCH_INDEX = Object.entries(REPORTS).map(([key, r]) => {
   const keyWords = key.split(/[_\s]+/).filter(Boolean);
   const labelWords = (r.label || "").toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
   const descWords = (r.description || "").toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  const strong = new Set([...keyWords, ...labelWords]);
   return {
     key,
     label: r.label || key,
     period: r.period || "daily",
     description: r.description || r.label || "",
-    // weighted: key + label tokens count more than description tokens
-    strong: new Set([...keyWords, ...labelWords]),
-    weak: new Set(descWords),
+    strong,                                   // key + label tokens (high weight)
+    weak: new Set(descWords),                 // description tokens (low weight)
+    axes: new Set(keyWords.filter((w) => AXIS_WORDS.has(w))), // breakdown dimensions
+    text: (key.replace(/_/g, " ") + " " + (r.label || "").toLowerCase()), // for bigrams
   };
 });
 
@@ -4949,32 +4969,69 @@ const PERIOD_HINTS = {
   between: "range", from: "range", weekly: "range", week: "range",
 };
 
+// Build adjacent word-pairs from the raw query (stopwords kept) so multi-word
+// intents like "service group", "time of day", "by day" can be matched as phrases.
+function queryBigrams(q) {
+  const raw = String(q || "").toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  const out = [];
+  for (let i = 0; i + 1 < raw.length; i++) out.push(raw[i] + " " + raw[i + 1]);
+  return out;
+}
+
 /**
  * Score every report against a natural-language query and return the top `limit`
  * matches (default 6). Keeps the LLM's tool schema tiny: instead of embedding all
  * 130+ reports in get_report's description, the model calls find_reports first.
  *
+ * Scoring (tuned for a small model that must pick among near-duplicate reports):
+ *   +4  query token matches a DISCRIMINATOR word the report has (axis/subject/type)
+ *   +3  query token matches any other key/label token
+ *   +1  query token matches a description-only token
+ *   +1.5 substring/partial match (e.g. "perf" -> "performance")
+ *   axis alignment (only when the query names at least one axis):
+ *     -1   for each axis the user asked for that the report lacks
+ *     -1.5 for each EXTRA axis the report has that the user didn't ask for
+ *   grain: +1.5 if period matches the requested grain, -1.5 if it mismatches
+ *   +2  per query word-pair found as a phrase in the report key/label
+ *
  * Returns: [{ key, label, input, description, score }]
  */
 export function searchReports(query, limit = 6) {
   const tokens = tokenizeQuery(query);
-  // Detect a requested grain (daily/monthly/range) to gently bias ties.
+  const bigrams = queryBigrams(query);
+
+  // Requested grain (daily/monthly/range), if the user implied one.
   let wantPeriod = null;
   for (const w of String(query || "").toLowerCase().split(/[^a-z0-9]+/)) {
     if (PERIOD_HINTS[w]) { wantPeriod = PERIOD_HINTS[w]; break; }
   }
+  // Axes the user explicitly asked to break down by.
+  const reqAxes = tokens.filter((t) => AXIS_WORDS.has(t));
 
   const scored = SEARCH_INDEX.map((e) => {
     let score = 0;
+
+    // Token matches, with discriminators weighted higher.
     for (const t of tokens) {
-      if (e.strong.has(t)) score += 3;
+      if (e.strong.has(t)) score += DISCRIMINATOR_WORDS.has(t) ? 4 : 3;
       else if (e.weak.has(t)) score += 1;
       else {
-        // partial / substring match (e.g. "teller" vs "tellers", "perf" vs "performance")
         for (const w of e.strong) { if (w.includes(t) || t.includes(w)) { score += 1.5; break; } }
       }
     }
-    if (wantPeriod && e.period === wantPeriod) score += 1.5;
+
+    // Axis alignment — the key lever for separating by_X from by_X_by_Y.
+    if (reqAxes.length) {
+      for (const a of reqAxes) if (!e.axes.has(a)) score -= 1;        // missing a requested axis
+      for (const a of e.axes) if (!reqAxes.includes(a)) score -= 1.5; // carries an unasked axis
+    }
+
+    // Grain alignment.
+    if (wantPeriod) score += e.period === wantPeriod ? 1.5 : -1.5;
+
+    // Phrase / bigram bonus.
+    for (const bg of bigrams) if (e.text.includes(bg)) score += 2;
+
     return { e, score };
   });
 
