@@ -3073,6 +3073,1791 @@ export const REPORTS = {
       "&hTgtWtTypeSelInd=0&hSvcGrpTypSelectionType=0&hUploadFolderNm=&hSelectAllServiceFlg=N" +
       "&hSelectAllTellerFlg=N&hIsDefRpt=Y&hIsUsrRpt=N",
   },
+  daily_customer_rating_by_day: {
+    label: "Daily Customer Rating Analysis By Day",
+    description:
+      "Customer rating analysis for a single day, summarized BY DAY (one aggregated row of " +
+      "rating scores/feedback metrics for the whole day, not per counter or teller). Use for an " +
+      "overall daily customer-satisfaction/rating summary. (Customer Rating class; portable, no " +
+      "counters.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21009",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=D&hRptId=21009&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_customer_rating_by_day: {
+    label: "Monthly Customer Rating Analysis By Day",
+    description:
+      "Customer rating analysis for a whole month, summarized BY DAY (per-day rows of rating " +
+      "scores/feedback metrics across the month). Use for a monthly customer-satisfaction/rating " +
+      "summary broken down by day. (Customer Rating class; portable, no counters.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22009",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=M&hRptId=22009&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_customer_rating_by_day: {
+    label: "Periodically Customer Rating Analysis By Day",
+    description:
+      "Customer rating analysis over a custom date range, summarized BY DAY (per-day rows of " +
+      "rating scores/feedback metrics across the span). Use for a customer-satisfaction/rating " +
+      "summary over a 'from X to Y' period broken down by day. (Customer Rating class; portable, " +
+      "no counters.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23009",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on" +
+      "&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=" +
+      "&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23009" +
+      "&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=" +
+      "&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D" +
+      "&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N" +
+      "&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0" +
+      "&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0" +
+      "&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N" +
+      "&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N" +
+      "&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N" +
+      "&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N" +
+      "&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N" +
+      "&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N&hTmPeriodSelInd=N" +
+      "&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0" +
+      "&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y" +
+      "&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_customer_rating_by_ict: {
+    label: "Daily Customer Rating Analysis By ICT",
+    description:
+      "Customer rating analysis for a single day, broken down BY ICT (the input/collection " +
+      "terminal or channel customers used to submit their rating). Use for a daily customer-rating " +
+      "summary segmented by feedback device/channel. (Customer Rating class; portable, no counters; " +
+      "no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21036",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21036&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_customer_rating_by_ict: {
+    label: "Monthly Customer Rating Analysis By ICT",
+    description:
+      "Customer rating analysis for a whole month, broken down BY ICT (the input/collection " +
+      "terminal or channel customers used to submit their rating). Use for a monthly customer-rating " +
+      "summary segmented by feedback device/channel. (Customer Rating class; portable, no counters; " +
+      "no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22036",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22036&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_customer_rating_by_ict: {
+    label: "Periodically Customer Rating Analysis By ICT",
+    description:
+      "Customer rating analysis over a custom date range, broken down BY ICT (the input/collection " +
+      "terminal or channel customers used to submit their rating). Use for a customer-rating summary " +
+      "over a 'from X to Y' span segmented by feedback device/channel. (Customer Rating class; " +
+      "portable, no counters; no time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23036",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23036&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_customer_rating_by_service: {
+    label: "Daily Customer Rating Analysis By Service",
+    description:
+      "Customer rating analysis for a single day, broken down BY SERVICE (one row per service " +
+      "type showing its rating scores/feedback metrics). Use for a daily customer-satisfaction/" +
+      "rating summary segmented by service. (Customer Rating class; portable select-all services, " +
+      "no counters.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21002",
+    // Portable: hSelServ blank + per-service named fields dropped; rely on chkAllSvc=on +
+    // hSelectAllServiceFlg=Y (hServSelInd=Y, hServTypeSelInd=1 kept as the select-all-services state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=D&hRptId=21002&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_customer_rating_by_service: {
+    label: "Monthly Customer Rating Analysis By Service",
+    description:
+      "Customer rating analysis for a whole month, broken down BY SERVICE (one row per service " +
+      "type showing its rating scores/feedback metrics). Use for a monthly customer-satisfaction/" +
+      "rating summary segmented by service. (Customer Rating class; portable select-all services, " +
+      "no counters.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22002",
+    // Portable: hSelServ blank + per-service named fields dropped; rely on chkAllSvc=on +
+    // hSelectAllServiceFlg=Y (hServSelInd=Y, hServTypeSelInd=1 kept as the select-all-services state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=M&hRptId=22002&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_customer_rating_by_service: {
+    label: "Periodically Customer Rating Analysis By Service",
+    description:
+      "Customer rating analysis over a custom date range, broken down BY SERVICE (one row per " +
+      "service type showing its rating scores/feedback metrics). Use for a customer-satisfaction/" +
+      "rating summary over a 'from X to Y' span segmented by service. (Customer Rating class; " +
+      "portable select-all services, no counters.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23002",
+    // Portable: hSelServ blank + per-service named fields dropped; rely on chkAllSvc=on +
+    // hSelectAllServiceFlg=Y (hServSelInd=Y, hServTypeSelInd=1 kept as the select-all-services state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on" +
+      "&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=" +
+      "&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23002" +
+      "&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=" +
+      "&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D" +
+      "&hApplyExpDate=Y&hSelectAllServiceFlg=Y&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N" +
+      "&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=1&hBrhTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0" +
+      "&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0" +
+      "&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N" +
+      "&hServSelInd=Y&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N" +
+      "&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N" +
+      "&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N" +
+      "&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N" +
+      "&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N&hTmPeriodSelInd=N" +
+      "&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0" +
+      "&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y" +
+      "&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_customer_rating_by_teller: {
+    label: "Daily Customer Rating Analysis By Teller",
+    description:
+      "Customer rating analysis for a single day, broken down BY TELLER (one row per teller/" +
+      "staff member showing the rating scores/feedback their customers gave). Use for a daily " +
+      "customer-satisfaction/rating summary per teller. (Customer Rating class; portable select-all " +
+      "tellers, no counters.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21001",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=D&hRptId=21001&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_customer_rating_by_teller: {
+    label: "Monthly Customer Rating Analysis By Teller",
+    description:
+      "Customer rating analysis for a whole month, broken down BY TELLER (one row per teller/" +
+      "staff member showing the rating scores/feedback their customers gave). Use for a monthly " +
+      "customer-satisfaction/rating summary per teller. (Customer Rating class; portable select-all " +
+      "tellers, no counters.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22001",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=M&hRptId=22001&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_customer_rating_by_teller: {
+    label: "Periodically Customer Rating Analysis By Teller",
+    description:
+      "Customer rating analysis over a custom date range, broken down BY TELLER (one row per " +
+      "teller/staff member showing the rating scores/feedback their customers gave). Use for a " +
+      "customer-satisfaction/rating summary over a 'from X to Y' span per teller. (Customer Rating " +
+      "class; portable select-all tellers, no counters.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23001",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on" +
+      "&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=" +
+      "&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23001" +
+      "&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=" +
+      "&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D" +
+      "&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y" +
+      "&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0" +
+      "&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0" +
+      "&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N" +
+      "&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=N" +
+      "&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N" +
+      "&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N" +
+      "&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N" +
+      "&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N&hTmPeriodSelInd=N" +
+      "&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0" +
+      "&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y" +
+      "&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_qos_performance_by_answer: {
+    label: "Daily QoS Performance By Answer",
+    description:
+      "Quality-of-service performance for a single day, broken down BY ANSWER (one row per " +
+      "feedback-survey answer option, e.g. each rating/response choice, with how many customers " +
+      "chose it and related metrics). Use for a daily breakdown of customer feedback by answer/" +
+      "response option. (Customer Rating class; portable, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21013",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21013&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_qos_performance_by_answer: {
+    label: "Monthly QoS Performance By Answer",
+    description:
+      "Quality-of-service performance for a whole month, broken down BY ANSWER (one row per " +
+      "feedback-survey answer option, e.g. each rating/response choice, with how many customers " +
+      "chose it and related metrics). Use for a monthly breakdown of customer feedback by answer/" +
+      "response option. (Customer Rating class; portable, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22013",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22013&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_qos_performance_by_answer: {
+    label: "Periodically QoS Performance By Answer",
+    description:
+      "Quality-of-service performance over a custom date range, broken down BY ANSWER (one row " +
+      "per feedback-survey answer option, e.g. each rating/response choice, with how many " +
+      "customers chose it and related metrics). Use for a breakdown of customer feedback by " +
+      "answer/response option over a 'from X to Y' span. (Customer Rating class; portable, no " +
+      "counters; no time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23013",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23013&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_qos_performance_by_answer_by_question: {
+    label: "Daily QoS Performance By Answer By Question",
+    description:
+      "Quality-of-service performance for a single day, broken down BY ANSWER within each " +
+      "QUESTION (rows per survey question, then per answer/response option, showing how customers " +
+      "answered each feedback question). Use for a daily breakdown of feedback answers grouped by " +
+      "survey question. (Customer Rating class; portable select-all questions, no counters; no " +
+      "time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21012",
+    // Portable: hSelQuestion blank + per-question named (survey-text) fields dropped; rely on the
+    // proven all-questions default chkAllQues=on + hQuestionSelInd=N (same state all other reports use).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21012&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_qos_performance_by_answer_by_question: {
+    label: "Monthly QoS Performance By Answer By Question",
+    description:
+      "Quality-of-service performance for a whole month, broken down BY ANSWER within each " +
+      "QUESTION (rows per survey question, then per answer/response option, showing how customers " +
+      "answered each feedback question). Use for a monthly breakdown of feedback answers grouped by " +
+      "survey question. (Customer Rating class; portable select-all questions, no counters; no " +
+      "time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22012",
+    // Portable: hSelQuestion blank + per-question named (survey-text) fields dropped; rely on the
+    // proven all-questions default chkAllQues=on + hQuestionSelInd=N (same state all other reports use).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22012&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_qos_performance_by_answer_by_question: {
+    label: "Periodically QoS Performance By Answer By Question",
+    description:
+      "Quality-of-service performance over a custom date range, broken down BY ANSWER within each " +
+      "QUESTION (rows per survey question, then per answer/response option, showing how customers " +
+      "answered each feedback question). Use for a breakdown of feedback answers grouped by survey " +
+      "question over a 'from X to Y' span. (Customer Rating class; portable select-all questions, no " +
+      "counters; no time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23012",
+    // Portable: hSelQuestion blank + per-question named (survey-text) fields dropped; rely on the
+    // proven all-questions default chkAllQues=on + hQuestionSelInd=N (same state all other reports use).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23012&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_rating_distribution_by_day_by_question: {
+    label: "Daily Rating Distribution By Day By Question",
+    description:
+      "Rating distribution for a single day, summarized BY DAY and BY QUESTION (the spread of " +
+      "rating scores/answer choices across each feedback question — e.g. how many 1-star, 2-star " +
+      "etc. each question received). Use for a daily view of how customer ratings are distributed " +
+      "per survey question. (Customer Rating class; portable, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21011",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21011&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_rating_distribution_by_day_by_question: {
+    label: "Monthly Rating Distribution By Day By Question",
+    description:
+      "Rating distribution for a whole month, summarized BY DAY and BY QUESTION (the spread of " +
+      "rating scores/answer choices across each feedback question — e.g. how many 1-star, 2-star " +
+      "etc. each question received). Use for a monthly view of how customer ratings are distributed " +
+      "per survey question. (Customer Rating class; portable, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22011",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22011&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_rating_distribution_by_day_by_question: {
+    label: "Periodically Rating Distribution By Day By Question",
+    description:
+      "Rating distribution over a custom date range, summarized BY DAY and BY QUESTION (the spread " +
+      "of rating scores/answer choices across each feedback question — e.g. how many 1-star, 2-star " +
+      "etc. each question received). Use for a 'from X to Y' view of how customer ratings are " +
+      "distributed per survey question. (Customer Rating class; portable, no counters; no time-format " +
+      "option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23011",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23011&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_rating_distribution_by_question: {
+    label: "Daily Rating Distribution By Question",
+    description:
+      "Rating distribution for a single day, summarized BY QUESTION (the spread of rating scores/" +
+      "answer choices per feedback question, aggregated over the whole day — not broken out by day). " +
+      "Use for a daily summary of how customer ratings are distributed across each survey question. " +
+      "(Customer Rating class; portable, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21005",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21005&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_rating_distribution_by_question: {
+    label: "Monthly Rating Distribution By Question",
+    description:
+      "Rating distribution for a whole month, summarized BY QUESTION (the spread of rating scores/" +
+      "answer choices per feedback question, aggregated over the month — not broken out by day). " +
+      "Use for a monthly summary of how customer ratings are distributed across each survey " +
+      "question. (Customer Rating class; portable, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22005",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22005&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_rating_distribution_by_question: {
+    label: "Periodically Rating Distribution By Question",
+    description:
+      "Rating distribution over a custom date range, summarized BY QUESTION (the spread of rating " +
+      "scores/answer choices per feedback question, aggregated over the span — not broken out by " +
+      "day). Use for a 'from X to Y' summary of how customer ratings are distributed across each " +
+      "survey question. (Customer Rating class; portable, no counters; no time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23005",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23005&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_rating_distribution_by_question_by_ict: {
+    label: "Daily Rating Distribution By Question By ICT",
+    description:
+      "Rating distribution for a single day, summarized BY QUESTION and BY ICT (the spread of " +
+      "rating scores per feedback question, further split by the input terminal/channel customers " +
+      "used to submit the rating). Use for a daily view of rating distribution per question per " +
+      "feedback device/channel. (Customer Rating class; portable, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21037",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21037&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_rating_distribution_by_question_by_ict: {
+    label: "Monthly Rating Distribution By Question By ICT",
+    description:
+      "Rating distribution for a whole month, summarized BY QUESTION and BY ICT (the spread of " +
+      "rating scores per feedback question, further split by the input terminal/channel customers " +
+      "used to submit the rating). Use for a monthly view of rating distribution per question per " +
+      "feedback device/channel. (Customer Rating class; portable, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22037",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22037&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_rating_distribution_by_question_by_ict: {
+    label: "Periodically Rating Distribution By Question By ICT",
+    description:
+      "Rating distribution over a custom date range, summarized BY QUESTION and BY ICT (the spread " +
+      "of rating scores per feedback question, further split by the input terminal/channel customers " +
+      "used to submit the rating). Use for a 'from X to Y' view of rating distribution per question " +
+      "per feedback device/channel. (Customer Rating class; portable, no counters; no time-format " +
+      "option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23037",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23037&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_rating_distribution_by_question_by_teller: {
+    label: "Daily Rating Distribution By Question By Teller",
+    description:
+      "Rating distribution for a single day, summarized BY QUESTION and BY TELLER (the spread of " +
+      "rating scores per feedback question, further split by teller/staff member). Use for a daily " +
+      "view of rating distribution per question per teller. (Customer Rating class; portable " +
+      "select-all tellers, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21010",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21010&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_rating_distribution_by_question_by_teller: {
+    label: "Monthly Rating Distribution By Question By Teller",
+    description:
+      "Rating distribution for a whole month, summarized BY QUESTION and BY TELLER (the spread of " +
+      "rating scores per feedback question, further split by teller/staff member). Use for a monthly " +
+      "view of rating distribution per question per teller. (Customer Rating class; portable " +
+      "select-all tellers, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22010",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22010&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_rating_distribution_by_question_by_teller: {
+    label: "Periodically Rating Distribution By Question By Teller",
+    description:
+      "Rating distribution over a custom date range, summarized BY QUESTION and BY TELLER (the " +
+      "spread of rating scores per feedback question, further split by teller/staff member). Use " +
+      "for a 'from X to Y' view of rating distribution per question per teller. (Customer Rating " +
+      "class; portable select-all tellers, no counters; no time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23010",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23010&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_rating_distribution_by_teller: {
+    label: "Daily Rating Distribution By Teller",
+    description:
+      "Rating distribution for a single day, summarized BY TELLER (the spread of rating scores/" +
+      "answer choices per teller/staff member, aggregated over the whole day — not broken out per " +
+      "question). Use for a daily view of how customer ratings are distributed across each teller. " +
+      "(Customer Rating class; portable select-all tellers, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21018",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21018&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_rating_distribution_by_teller: {
+    label: "Monthly Rating Distribution By Teller",
+    description:
+      "Rating distribution for a whole month, summarized BY TELLER (the spread of rating scores/" +
+      "answer choices per teller/staff member, aggregated over the month — not broken out per " +
+      "question). Use for a monthly view of how customer ratings are distributed across each teller. " +
+      "(Customer Rating class; portable select-all tellers, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22018",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22018&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_rating_distribution_by_teller: {
+    label: "Periodically Rating Distribution By Teller",
+    description:
+      "Rating distribution over a custom date range, summarized BY TELLER (the spread of rating " +
+      "scores/answer choices per teller/staff member, aggregated over the span — not broken out per " +
+      "question). Use for a 'from X to Y' view of how customer ratings are distributed across each " +
+      "teller. (Customer Rating class; portable select-all tellers, no counters; no time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23018",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23018&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_rating_distribution_by_teller_by_question: {
+    label: "Daily Rating Distribution By Teller By Question",
+    description:
+      "Rating distribution for a single day, summarized BY TELLER and BY QUESTION (the spread of " +
+      "rating scores per teller/staff member, further split per feedback question). Use for a daily " +
+      "view of rating distribution per teller per survey question. (Customer Rating class; portable " +
+      "select-all tellers, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21008",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21008&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_rating_distribution_by_teller_by_question: {
+    label: "Monthly Rating Distribution By Teller By Question",
+    description:
+      "Rating distribution for a whole month, summarized BY TELLER and BY QUESTION (the spread of " +
+      "rating scores per teller/staff member, further split per feedback question). Use for a monthly " +
+      "view of rating distribution per teller per survey question. (Customer Rating class; portable " +
+      "select-all tellers, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22008",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22008&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_rating_distribution_by_teller_by_question: {
+    label: "Periodically Rating Distribution By Teller By Question",
+    description:
+      "Rating distribution over a custom date range, summarized BY TELLER and BY QUESTION (the " +
+      "spread of rating scores per teller/staff member, further split per feedback question). Use " +
+      "for a 'from X to Y' view of rating distribution per teller per survey question. (Customer " +
+      "Rating class; portable select-all tellers, no counters; no time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23008",
+    // Portable: hSelTeller blank + per-teller named fields dropped; rely on chkAllTr=on +
+    // hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1 kept as the select-all-tellers state).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23008&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_rating_distribution_pattern_analysis: {
+    label: "Daily Rating Distribution Pattern Analysis",
+    description:
+      "Rating distribution pattern for a single day broken down BY HOUR / time-of-day (the spread " +
+      "of rating scores across each hour of the day, e.g. how ratings vary 07:00, 08:00, ...). Use " +
+      "for a daily hourly pattern of how customer ratings are distributed through the day. (Customer " +
+      "Rating class; portable select-all time-of-day, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21007",
+    // Portable: hSelDayTimeSlot blank + per-hour named fields dropped; rely on the verified
+    // time-of-day select-all chkAllTod=on + hDayTimeSlotSelInd=Y (returns all hour slots).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21007&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_rating_distribution_pattern_analysis: {
+    label: "Monthly Rating Distribution Pattern Analysis",
+    description:
+      "Rating distribution pattern for a whole month broken down BY HOUR / time-of-day (the spread " +
+      "of rating scores across each hour of the day, e.g. how ratings vary 07:00, 08:00, ...). Use " +
+      "for a monthly hourly pattern of how customer ratings are distributed through the day. (Customer " +
+      "Rating class; portable select-all time-of-day, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22007",
+    // Portable: hSelDayTimeSlot blank + per-hour named fields dropped; rely on the verified
+    // time-of-day select-all chkAllTod=on + hDayTimeSlotSelInd=Y (returns all hour slots).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22007&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_rating_distribution_pattern_analysis: {
+    label: "Periodically Rating Distribution Pattern Analysis",
+    description:
+      "Rating distribution pattern over a custom date range broken down BY HOUR / time-of-day (the " +
+      "spread of rating scores across each hour of the day, e.g. how ratings vary 07:00, 08:00, ...). " +
+      "Use for a 'from X to Y' hourly pattern of how customer ratings are distributed through the day. " +
+      "(Customer Rating class; portable select-all time-of-day, no counters; no time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23007",
+    // Portable: hSelDayTimeSlot blank + per-hour named fields dropped; rely on the verified
+    // time-of-day select-all chkAllTod=on + hDayTimeSlotSelInd=Y (returns all hour slots).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23007&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_rating_performance_by_question: {
+    label: "Daily Rating Performance By Question",
+    description:
+      "Rating performance for a single day, summarized BY QUESTION (per feedback question, the " +
+      "average rating / performance scores and how it measured against targets). Use for a daily " +
+      "summary of customer-rating performance for each survey question. (Customer Rating class; " +
+      "portable, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21004",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21004&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_rating_performance_by_question: {
+    label: "Monthly Rating Performance By Question",
+    description:
+      "Rating performance for a whole month, summarized BY QUESTION (per feedback question, the " +
+      "average rating / performance scores and how it measured against targets). Use for a monthly " +
+      "summary of customer-rating performance for each survey question. (Customer Rating class; " +
+      "portable, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22004",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22004&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_rating_performance_by_question: {
+    label: "Periodically Rating Performance By Question",
+    description:
+      "Rating performance over a custom date range, summarized BY QUESTION (per feedback question, " +
+      "the average rating / performance scores and how it measured against targets). Use for a " +
+      "'from X to Y' summary of customer-rating performance for each survey question. (Customer " +
+      "Rating class; portable, no counters; no time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23004",
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23004&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=N&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_rating_performance_pattern_analysis: {
+    label: "Daily Rating Performance Pattern Analysis",
+    description:
+      "Rating performance pattern for a single day broken down BY HOUR / time-of-day (the average " +
+      "rating / performance scores across each hour of the day, e.g. how rating performance varies " +
+      "07:00, 08:00, ...). Use for a daily hourly pattern of customer-rating performance. (Customer " +
+      "Rating class; portable select-all time-of-day, no counters; no time-format option.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "21006",
+    // Portable: hSelDayTimeSlot blank + per-hour named fields dropped; rely on the verified
+    // time-of-day select-all chkAllTod=on + hDayTimeSlotSelInd=Y (returns all hour slots).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=D&hRptId=21006&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_rating_performance_pattern_analysis: {
+    label: "Monthly Rating Performance Pattern Analysis",
+    description:
+      "Rating performance pattern for a whole month broken down BY HOUR / time-of-day (the average " +
+      "rating / performance scores across each hour of the day, e.g. how rating performance varies " +
+      "07:00, 08:00, ...). Use for a monthly hourly pattern of customer-rating performance. (Customer " +
+      "Rating class; portable select-all time-of-day, no counters; no time-format option.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "22006",
+    // Portable: hSelDayTimeSlot blank + per-hour named fields dropped; rely on the verified
+    // time-of-day select-all chkAllTod=on + hDayTimeSlotSelInd=Y (returns all hour slots).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&selTgtAvgWt=" +
+      "&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=" +
+      "&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on" +
+      "&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on" +
+      "&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=" +
+      "&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2&hRptSelBrhCode=&hRptIsCorp=false" +
+      "&hRptType=M&hRptId=22006&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=" +
+      "&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=21003" +
+      "&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter&hLoad1stRecTyp=D&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_rating_performance_pattern_analysis: {
+    label: "Periodically Rating Performance Pattern Analysis",
+    description:
+      "Rating performance pattern over a custom date range broken down BY HOUR / time-of-day (the " +
+      "average rating / performance scores across each hour of the day, e.g. how rating performance " +
+      "varies 07:00, 08:00, ...). Use for a 'from X to Y' hourly pattern of customer-rating " +
+      "performance. (Customer Rating class; portable select-all time-of-day, no counters; no " +
+      "time-format option.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "23006",
+    // Portable: hSelDayTimeSlot blank + per-hour named fields dropped; rely on the verified
+    // time-of-day select-all chkAllTod=on + hDayTimeSlotSelInd=Y (returns all hour slots).
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=" +
+      "&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=2" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=23006&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=21003&hLoad1stRecNm=Daily+Customer+Rating+Analysis+By+Counter" +
+      "&hLoad1stRecTyp=D&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N" +
+      "&hSelectAllTellerFlg=N&hSelectAllTrxFlg=N&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0" +
+      "&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0" +
+      "&hTgtTtTypeSelInd=0&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0" +
+      "&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=N" +
+      "&hMthSelInd=N&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N" +
+      "&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N" +
+      "&hTransactionSelInd=N&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N" +
+      "&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N" +
+      "&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N" +
+      "&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0" +
+      "&hServiceGrpSelPurpose=0&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y" +
+      "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
+      "&hSelStdSt=&hSelStdStP2=",
+  },
 };
 
 const PAYLOAD_TEMPLATE =

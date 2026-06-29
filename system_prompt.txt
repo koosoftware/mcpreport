@@ -254,6 +254,96 @@ Available reports:
   YYYY-MM.
 - periodic_user_log — "Periodically User Log". Same as above but over a custom date range. Inputs:
   date_from and date_to (YYYY-MM-DD).
+- daily_customer_rating_by_day — "Daily Customer Rating Analysis By Day". Overall customer
+  satisfaction/rating summary for one day (one aggregated row, not per counter/teller). Input: a date YYYY-MM-DD.
+- monthly_customer_rating_by_day — "Monthly Customer Rating Analysis By Day". Same as above but
+  over a whole month, broken down by day. Input: a month as YYYY-MM.
+- periodic_customer_rating_by_day — "Periodically Customer Rating Analysis By Day". Same as above
+  but over a custom date range, broken down by day. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_customer_rating_by_ict — "Daily Customer Rating Analysis By ICT". Daily customer-rating
+  summary segmented by ICT (the input terminal/channel used to submit the rating). Input: a date YYYY-MM-DD.
+- monthly_customer_rating_by_ict — "Monthly Customer Rating Analysis By ICT". Same as above but
+  over a whole month. Input: a month as YYYY-MM.
+- periodic_customer_rating_by_ict — "Periodically Customer Rating Analysis By ICT". Same as above
+  but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_customer_rating_by_service — "Daily Customer Rating Analysis By Service". Daily customer-
+  rating summary with one row per service type. Input: a date as YYYY-MM-DD.
+- monthly_customer_rating_by_service — "Monthly Customer Rating Analysis By Service". Same as above
+  but over a whole month. Input: a month as YYYY-MM.
+- periodic_customer_rating_by_service — "Periodically Customer Rating Analysis By Service". Same as
+  above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_customer_rating_by_teller — "Daily Customer Rating Analysis By Teller". Daily customer-
+  rating summary with one row per teller/staff member. Input: a date as YYYY-MM-DD.
+- monthly_customer_rating_by_teller — "Monthly Customer Rating Analysis By Teller". Same as above
+  but over a whole month. Input: a month as YYYY-MM.
+- periodic_customer_rating_by_teller — "Periodically Customer Rating Analysis By Teller". Same as
+  above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_qos_performance_by_answer — "Daily QoS Performance By Answer". Daily breakdown of customer
+  feedback by answer/response option (one row per survey answer choice). Input: a date as YYYY-MM-DD.
+- monthly_qos_performance_by_answer — "Monthly QoS Performance By Answer". Same as above but over a
+  whole month. Input: a month as YYYY-MM.
+- periodic_qos_performance_by_answer — "Periodically QoS Performance By Answer". Same as above but
+  over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_qos_performance_by_answer_by_question — "Daily QoS Performance By Answer By Question". Daily
+  feedback breakdown by answer option within each survey question. Input: a date as YYYY-MM-DD.
+- monthly_qos_performance_by_answer_by_question — "Monthly QoS Performance By Answer By Question".
+  Same as above but over a whole month. Input: a month as YYYY-MM.
+- periodic_qos_performance_by_answer_by_question — "Periodically QoS Performance By Answer By
+  Question". Same as above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_distribution_by_day_by_question — "Daily Rating Distribution By Day By Question". Daily
+  spread of rating scores/answer choices across each survey question. Input: a date as YYYY-MM-DD.
+- monthly_rating_distribution_by_day_by_question — "Monthly Rating Distribution By Day By Question".
+  Same as above but over a whole month. Input: a month as YYYY-MM.
+- periodic_rating_distribution_by_day_by_question — "Periodically Rating Distribution By Day By
+  Question". Same as above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_distribution_by_question — "Daily Rating Distribution By Question". Daily spread of
+  rating scores per survey question, aggregated over the day (not split by day). Input: a date YYYY-MM-DD.
+- monthly_rating_distribution_by_question — "Monthly Rating Distribution By Question". Same as above
+  but over a whole month. Input: a month as YYYY-MM.
+- periodic_rating_distribution_by_question — "Periodically Rating Distribution By Question". Same as
+  above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_distribution_by_question_by_ict — "Daily Rating Distribution By Question By ICT". Daily
+  rating spread per survey question, split by ICT (feedback device/channel). Input: a date YYYY-MM-DD.
+- monthly_rating_distribution_by_question_by_ict — "Monthly Rating Distribution By Question By ICT".
+  Same as above but over a whole month. Input: a month as YYYY-MM.
+- periodic_rating_distribution_by_question_by_ict — "Periodically Rating Distribution By Question By
+  ICT". Same as above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_distribution_by_question_by_teller — "Daily Rating Distribution By Question By Teller".
+  Daily rating spread per survey question, split by teller/staff member. Input: a date YYYY-MM-DD.
+- monthly_rating_distribution_by_question_by_teller — "Monthly Rating Distribution By Question By
+  Teller". Same as above but over a whole month. Input: a month as YYYY-MM.
+- periodic_rating_distribution_by_question_by_teller — "Periodically Rating Distribution By Question
+  By Teller". Same as above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_distribution_by_teller — "Daily Rating Distribution By Teller". Daily rating spread per
+  teller/staff member, aggregated over the day (not split per question). Input: a date YYYY-MM-DD.
+- monthly_rating_distribution_by_teller — "Monthly Rating Distribution By Teller". Same as above but
+  over a whole month. Input: a month as YYYY-MM.
+- periodic_rating_distribution_by_teller — "Periodically Rating Distribution By Teller". Same as above
+  but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_distribution_by_teller_by_question — "Daily Rating Distribution By Teller By Question".
+  Daily rating spread per teller, split by survey question. Input: a date YYYY-MM-DD.
+- monthly_rating_distribution_by_teller_by_question — "Monthly Rating Distribution By Teller By
+  Question". Same as above but over a whole month. Input: a month as YYYY-MM.
+- periodic_rating_distribution_by_teller_by_question — "Periodically Rating Distribution By Teller By
+  Question". Same as above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_distribution_pattern_analysis — "Daily Rating Distribution Pattern Analysis". Daily
+  hourly pattern of how customer ratings are distributed through the day (by hour/time-of-day). Input: a date YYYY-MM-DD.
+- monthly_rating_distribution_pattern_analysis — "Monthly Rating Distribution Pattern Analysis". Same
+  as above but over a whole month. Input: a month as YYYY-MM.
+- periodic_rating_distribution_pattern_analysis — "Periodically Rating Distribution Pattern Analysis".
+  Same as above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_performance_by_question — "Daily Rating Performance By Question". Daily customer-rating
+  performance summary per survey question (averages, vs targets). Input: a date as YYYY-MM-DD.
+- monthly_rating_performance_by_question — "Monthly Rating Performance By Question". Same as above but
+  over a whole month. Input: a month as YYYY-MM.
+- periodic_rating_performance_by_question — "Periodically Rating Performance By Question". Same as
+  above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
+- daily_rating_performance_pattern_analysis — "Daily Rating Performance Pattern Analysis". Daily
+  hourly pattern of customer-rating performance (by hour/time-of-day). Input: a date as YYYY-MM-DD.
+- monthly_rating_performance_pattern_analysis — "Monthly Rating Performance Pattern Analysis". Same
+  as above but over a whole month. Input: a month as YYYY-MM.
+- periodic_rating_performance_pattern_analysis — "Periodically Rating Performance Pattern Analysis".
+  Same as above but over a custom date range. Inputs: date_from and date_to (YYYY-MM-DD).
 
 Pick the report by granularity:
 - a specific single day -> daily_queue_performance, period = YYYY-MM-DD
