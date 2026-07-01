@@ -24,6 +24,7 @@ import {
   isYearMonth,
   parseCounters,
   DEFAULT_COUNTERS,
+  sessionForWorkspace,
 } from "./qms-core.js";
 
 const server = new McpServer({ name: "qms-report", version: "4.0.0" });
@@ -86,8 +87,15 @@ server.tool(
       .string()
       .optional()
       .describe("Per-counter reports only: which counter number(s), e.g. '1,3,5' or a range '1-15'. Required for by-counter reports unless an install default is configured."),
+    workspace_slug: z
+      .string()
+      .describe(
+        "Internal: identifies which QMS install/branch to query. This is injected " +
+          "automatically by the AnythingLLM host on every call — do not ask the user " +
+          "for it and do not attempt to set it yourself."
+      ),
   },
-  async ({ report, period = "", date_from = "", date_to = "", counters = "" }) => {
+  async ({ report, period = "", date_from = "", date_to = "", counters = "", workspace_slug }) => {
     const def = REPORTS[report];
     if (!def) {
       // Don't dump all keys (there are 130+). Suggest the closest matches instead.
@@ -96,6 +104,14 @@ server.tool(
         message: `'${report}' is not a valid report key. Call find_reports with the user's question to get valid keys.`,
         suggestions: searchReports(report, 6).map((m) => m.key),
       });
+    }
+
+    // Resolve which QMS install this workspace targets before doing anything else.
+    let session;
+    try {
+      session = sessionForWorkspace(workspace_slug);
+    } catch (e) {
+      return jsonContent({ error: "unknown_workspace", message: String(e?.message || e) });
     }
 
     // Per-counter reports need an explicit counter list (no select-all). If none is
@@ -135,7 +151,7 @@ server.tool(
         args = { period: value };
       }
       if (counterIds) args.counters = counterIds;
-      return jsonContent(await fetchReport(def, args));
+      return jsonContent(await fetchReport(def, args, session));
     } catch (e) {
       return jsonContent({ error: "request_failed", message: String(e?.message || e) });
     }

@@ -5380,7 +5380,16 @@ export function scrapeCsrf(html) {
 }
 
 export class Session {
-  constructor() {
+  /**
+   * @param {(path: string) => string} resolveUrl - Builds the absolute URL for a
+   *   given request path (LOGIN_PATH / REPORT_PATH / REPORT_PAGE_PATH / a report's
+   *   own `path` override). Defaults to the original single-install behavior
+   *   (BASE_URL + path) so existing callers (test scripts, the module-level
+   *   `defaultSession` below) are unaffected. Pass a workspace-aware resolver
+   *   (see `sessionForWorkspace`) to target a different QMS install.
+   */
+  constructor(resolveUrl = (path) => BASE_URL + path) {
+    this.resolveUrl = resolveUrl;
     this.cookie = "";
     this.csrf = "";
   }
@@ -5401,7 +5410,7 @@ export class Session {
       mod: "",
       urlRedirect: "",
     }).toString();
-    const resp = await request(BASE_URL + LOGIN_PATH, {
+    const resp = await request(this.resolveUrl(LOGIN_PATH), {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body,
@@ -5413,7 +5422,7 @@ export class Session {
     // csrf-token may be in the login response, or on a separate report page.
     this.csrf = scrapeCsrf(resp.text || "");
     if (!this.csrf && REPORT_PAGE_PATH) {
-      const page = await request(BASE_URL + REPORT_PAGE_PATH, {
+      const page = await request(this.resolveUrl(REPORT_PAGE_PATH), {
         method: "GET",
         headers: { Cookie: this.cookie },
       });
@@ -5426,6 +5435,69 @@ export class Session {
     if (!this.isValid) await this.login();
     return this;
   }
+}
+
+// --- Multi-endpoint (per-workspace) routing ---------------------------------
+// AnythingLLM injects `workspace_slug` on every get_report call (see server.js)
+// so this one MCP server process can serve multiple QMS installs — e.g. HQ's
+// QMS700i and a branch's QMS400i — from a single deployment.
+//
+// Every request path in this file (LOGIN_PATH, REPORT_PATH, REPORT_PAGE_PATH,
+// and the `path` override on the ~40 "Log report" entries in the REPORTS
+// catalog above) starts with a leading "/QMS700i" context root. Rather than
+// duplicating the whole REPORTS catalog per install, that leading segment is
+// swapped for the target install's own context root below, and the rest of
+// each path is reused as-is.
+//
+// Add new workspace/install pairs here. Any workspace_slug not listed is
+// rejected with a clear error instead of silently hitting the wrong server.
+export const WORKSPACE_ENDPOINTS = {
+  "gms-qms700i-gmshq": { host: "http://54.251.164.99:49999", contextRoot: "/QMS700i" },
+  "gms-qms400i-branch123": { host: "http://172.17.203.41", contextRoot: "/QMS400i" },
+};
+
+// The context root already baked into LOGIN_PATH / REPORT_PATH / REPORT_PAGE_PATH
+// / REPORTS[...].path above — the "find" half of the per-workspace swap.
+const DEFAULT_CONTEXT_ROOT = "/QMS700i";
+
+/**
+ * Resolve a workspace_slug to its { host, contextRoot }, or throw a descriptive
+ * error if it isn't a configured/known workspace.
+ * @param {string} workspaceSlug
+ * @returns {{ host: string, contextRoot: string }}
+ */
+export function resolveWorkspaceEndpoint(workspaceSlug) {
+  const endpoint = WORKSPACE_ENDPOINTS[workspaceSlug];
+  if (!endpoint) {
+    const known = Object.keys(WORKSPACE_ENDPOINTS).join(", ") || "(none configured)";
+    throw new Error(
+      `Unknown or missing workspace_slug '${workspaceSlug}'. This workspace is not mapped ` +
+        `to a QMS endpoint. Known workspaces: ${known}.`
+    );
+  }
+  return endpoint;
+}
+
+// Per-workspace sessions (cookie jar + csrf) — different QMS installs must not
+// share cookies, so each workspace_slug gets its own Session, created lazily
+// and reused across calls (same pattern as the single-install `defaultSession`).
+const workspaceSessions = new Map();
+
+/**
+ * Get (or lazily create) the Session for a given workspace_slug.
+ * Throws if the workspace isn't configured in WORKSPACE_ENDPOINTS.
+ * @param {string} workspaceSlug
+ * @returns {Session}
+ */
+export function sessionForWorkspace(workspaceSlug) {
+  const { host, contextRoot } = resolveWorkspaceEndpoint(workspaceSlug);
+  if (!workspaceSessions.has(workspaceSlug)) {
+    const resolveUrl = (path) =>
+      host +
+      (contextRoot === DEFAULT_CONTEXT_ROOT ? path : path.replace(DEFAULT_CONTEXT_ROOT, contextRoot));
+    workspaceSessions.set(workspaceSlug, new Session(resolveUrl));
+  }
+  return workspaceSessions.get(workspaceSlug);
 }
 
 /** Set the date field(s) on a parsed body according to the report's period. */
@@ -5495,7 +5567,7 @@ export function buildBody(report, args, csrf) {
 /** Low-level report POST. Returns the raw response details. */
 export async function postReportRaw(session, report, args) {
   // Most reports POST to CGenerateReport; some (e.g. Log reports) override `path`.
-  const resp = await request(BASE_URL + (report.path || REPORT_PATH), {
+  const resp = await request(session.resolveUrl(report.path || REPORT_PATH), {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded", Cookie: session.cookie },
     body: buildBody(report, args, session.csrf),
@@ -5508,11 +5580,19 @@ export async function postReportRaw(session, report, args) {
   return { ok, status: resp.status, ctype, text, looksLikeLogin };
 }
 
-// Module-level session reused across MCP calls.
-const session = new Session();
+// Module-level session reused across MCP calls for the default (single-install)
+// case — e.g. the test scripts, or any caller that doesn't pass its own session.
+const defaultSession = new Session();
 
-/** High-level: ensure login, fetch + parse the report, retry once on expiry. */
-export async function fetchReport(report, args) {
+/**
+ * High-level: ensure login, fetch + parse the report, retry once on expiry.
+ * @param {Object} report - report definition (from REPORTS)
+ * @param {Object} args - period/date args for the report
+ * @param {Session} [session] - defaults to the shared single-install session.
+ *   Pass a per-workspace session (see `sessionForWorkspace`) to target a
+ *   specific QMS install.
+ */
+export async function fetchReport(report, args, session = defaultSession) {
   await session.ensure();
   let r = await postReportRaw(session, report, args);
   if (r.looksLikeLogin) {
