@@ -4858,6 +4858,250 @@ export const REPORTS = {
       "&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=" +
       "&hSelStdSt=&hSelStdStP2=",
   },
+  daily_transaction_distribution_pattern_by_teller_queue_performance: {
+    label: "Daily Transaction Distribution Pattern Analysis By Teller",
+    description:
+      "Transaction distribution for a single day broken down BY TELLER and BY HOUR / time-of-day " +
+      "(how each teller's transactions are distributed across the hours of the day). Use for a daily " +
+      "hourly pattern of transaction volume per teller. (Queue Performance class; portable select-all " +
+      "tellers + time-of-day + transactions.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "11105",
+    // Portable on three axes: hSelTeller / hSelDayTimeSlot / hSelTransaction blanked and their
+    // install-specific named fields dropped; rely on the select-all flags —
+    //   tellers:      chkAllTr=on  + hSelectAllTellerFlg=Y (hTellerSelInd=Y, hTellerTypeSelInd=1)
+    //   time-of-day:  chkAllTod=on + hDayTimeSlotSelInd=Y   (verified pattern)
+    //   transactions: chkAllTrans=on + hSelectAllTrxFlg=Y   (hTransactionSelInd=Y) — VERIFY LIVE
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-29&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=1" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=D&hRptId=11105&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P" +
+      "&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y" +
+      "&hSelectAllTrxFlg=Y&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0" +
+      "&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0" +
+      "&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N" +
+      "&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=Y" +
+      "&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=Y" +
+      "&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N" +
+      "&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N" +
+      "&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N&hTmPeriodSelInd=N" +
+      "&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1" +
+      "&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y" +
+      "&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_transaction_distribution_pattern_by_teller_queue_performance: {
+    label: "Monthly Transaction Distribution Pattern Analysis By Teller",
+    description:
+      "Transaction distribution for a whole month broken down BY TELLER and BY HOUR / time-of-day " +
+      "(how each teller's transactions are distributed across the hours of the day). Use for a monthly " +
+      "hourly pattern of transaction volume per teller. (Queue Performance class; portable select-all " +
+      "tellers + time-of-day + transactions.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "12105",
+    // Portable on three axes (teller / time-of-day / transaction) — blanked + named fields dropped,
+    // rely on chkAllTr+hSelectAllTellerFlg=Y, chkAllTod+hDayTimeSlotSelInd=Y, chkAllTrans+hSelectAllTrxFlg=Y.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=1" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=M&hRptId=12105&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P" +
+      "&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y" +
+      "&hSelectAllTrxFlg=Y&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0" +
+      "&hIctTypeSelInd=0&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0" +
+      "&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N" +
+      "&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=Y" +
+      "&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=Y" +
+      "&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N" +
+      "&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N" +
+      "&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N&hTmPeriodSelInd=N" +
+      "&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1" +
+      "&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y" +
+      "&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_transaction_distribution_pattern_by_teller_queue_performance: {
+    label: "Periodically Transaction Distribution Pattern Analysis By Teller",
+    description:
+      "Transaction distribution over a custom date range broken down BY TELLER and BY HOUR / " +
+      "time-of-day (how each teller's transactions are distributed across the hours of the day). Use " +
+      "for a 'from X to Y' hourly pattern of transaction volume per teller. (Queue Performance class; " +
+      "portable select-all tellers + time-of-day + transactions.)",
+    period: "range", // inputs: date_from + date_to (YYYY-MM-DD)
+    hRptId: "13105",
+    // Portable on three axes (teller / time-of-day / transaction) — blanked + named fields dropped,
+    // rely on chkAllTr+hSelectAllTellerFlg=Y, chkAllTod+hDayTimeSlotSelInd=Y, chkAllTrans+hSelectAllTrxFlg=Y.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=2026-06-28&rpttoDt=2026-06-29&rptYr=" +
+      "&rptYearly=&TimeFormatOpt=1&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=" +
+      "&selTgtWt2=&selTgtSt2=&selTgtTt2=&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on" +
+      "&chkAllTrxGrp=on&chkAllSrvGrpTyp=on&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on" +
+      "&chkAllTrans=on&chkAllTod=on&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on" +
+      "&chkAllQues=on&chkAllAns=on&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=" +
+      "&hiddenTrxGrpTyp=&hRptClassId=1&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=13105" +
+      "&hRptDataIn=3&hRptOut=csv&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=" +
+      "&hSelDayTimeSlot=&hSelWTItv=&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=" +
+      "&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=&hSelTgtTt=&hSelQuestion=&hSelAnswer=" +
+      "&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=" +
+      "&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=" +
+      "&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=" +
+      "&hSelSvcGrpTyp=&hLoad1stRecFlg=Y&hLoad1stRecId=99023134" +
+      "&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P&hApplyExpDate=Y" +
+      "&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=Y&hSelectAllTrxFlg=Y" +
+      "&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0&hTgtWtTypeSelInd=0" +
+      "&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0&hIctTypeSelInd=0" +
+      "&hTellerTypeSelInd=1&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0&hQuesGrpSelectionType=0" +
+      "&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N&hServSelInd=N&hBrhInd=N" +
+      "&hCounterSelInd=N&hTellerSelInd=Y&hDayTimeSlotSelInd=Y&hWTItvSelInd=N&hSTItvSelInd=N" +
+      "&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=Y&hBrhGrpSelInd=N&hSvcGrpSelInd=N" +
+      "&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N" +
+      "&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N" +
+      "&hTrxGrpSelInd=N&hTmPeriodSelInd=N&hStartWorkTmInd=N&hSelSvcGrpTypInd=N" +
+      "&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y" +
+      "&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=" +
+      "&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  daily_transaction_performance_pattern_by_transaction_queue_performance: {
+    label: "Daily Transaction Performance Pattern Analysis By Transaction",
+    description:
+      "Transaction performance for a single day broken down BY TRANSACTION TYPE and BY HOUR / " +
+      "time-of-day (how each transaction type's volume/performance is distributed across the hours " +
+      "of the day). Use for a daily hourly pattern of transaction performance per transaction type. " +
+      "(Queue Performance class; portable select-all transactions + time-of-day; no teller axis.)",
+    period: "daily", // input: date YYYY-MM-DD (rptDt)
+    hRptId: "11044",
+    // Portable on two axes (transaction / time-of-day) — blanked + named fields dropped, rely on
+    // chkAllTrans=on + hSelectAllTrxFlg=Y (hTransactionSelInd=Y) and chkAllTod=on + hDayTimeSlotSelInd=Y.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptDt=2026-06-30&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=1" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=D&hRptId=11044&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P" +
+      "&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N" +
+      "&hSelectAllTrxFlg=Y&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0" +
+      "&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0" +
+      "&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N" +
+      "&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y" +
+      "&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=Y" +
+      "&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N" +
+      "&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N" +
+      "&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N&hTmPeriodSelInd=N" +
+      "&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1" +
+      "&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y" +
+      "&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  monthly_transaction_performance_pattern_by_transaction_queue_performance: {
+    label: "Monthly Transaction Performance Pattern Analysis By Transaction",
+    description:
+      "Transaction performance for a whole month broken down BY TRANSACTION TYPE and BY HOUR / " +
+      "time-of-day (how each transaction type's volume/performance is distributed across the hours " +
+      "of the day). Use for a monthly hourly pattern of transaction performance per transaction type. " +
+      "(Queue Performance class; portable select-all transactions + time-of-day; no teller axis.)",
+    period: "monthly", // input: month YYYY-MM (rptMth + rptYr)
+    hRptId: "12028", // note: monthly is 12028, not 12044 — this family numbering is irregular
+    // Portable on two axes (transaction / time-of-day) — blanked + named fields dropped, rely on
+    // chkAllTrans=on + hSelectAllTrxFlg=Y (hTransactionSelInd=Y) and chkAllTod=on + hDayTimeSlotSelInd=Y.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptMth=06&rptYr=2026&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=1" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=M&hRptId=12028&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P" +
+      "&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N" +
+      "&hSelectAllTrxFlg=Y&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0" +
+      "&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0" +
+      "&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N" +
+      "&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y" +
+      "&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=Y" +
+      "&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N" +
+      "&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N" +
+      "&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N&hTmPeriodSelInd=N" +
+      "&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1" +
+      "&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y" +
+      "&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
+  periodic_transaction_performance_pattern_by_transaction_queue_performance: {
+    label: "Periodically Transaction Performance Pattern Analysis By Transaction",
+    description:
+      "Transaction performance over a custom date range broken down BY TRANSACTION TYPE and BY HOUR / " +
+      "time-of-day (how each transaction type's volume/performance is distributed across the hours " +
+      "of the day). Use for an hourly pattern of transaction performance per transaction type over a " +
+      "from/to date range. (Queue Performance class; portable select-all transactions + time-of-day; no teller axis.)",
+    period: "range", // input: date_from + date_to YYYY-MM-DD (rptfrmDt + rpttoDt)
+    hRptId: "13028", // note: this family numbering is irregular (daily 11044, monthly 12028, periodic 13028)
+    // Portable on two axes (transaction / time-of-day) — blanked + named fields dropped, rely on
+    // chkAllTrans=on + hSelectAllTrxFlg=Y (hTransactionSelInd=Y) and chkAllTod=on + hDayTimeSlotSelInd=Y.
+    payload:
+      "csrf-token=&useExpDt=on&useExpDt2=on&rptfrmDt=&rpttoDt=&rptYr=&rptYearly=&TimeFormatOpt=1" +
+      "&selTgtAvgWt=&selTgtAvgSt=&selWTRange=&selTrxSTRange=&selTgtWt2=&selTgtSt2=&selTgtTt2=" +
+      "&selTgtTrxSt2=&chkAllBrhGrp=on&chkAllBrh=on&chkAllTrxGrp=on&chkAllSrvGrpTyp=on" +
+      "&chkAllSvcGrp=on&chkAllSvc=on&chkAllCnt=on&chkAllTr=on&chkAllTrans=on&chkAllTod=on" +
+      "&chkAllWt=on&chkAllSt=on&chkAllTrxSt=on&chkAllQuesGrp=on&chkAllQues=on&chkAllAns=on" +
+      "&chkAllIct=on&hiddenBrhGrpTyp=&hiddenSvcGrpTyp=&hiddenTrxGrpTyp=&hRptClassId=1" +
+      "&hRptSelBrhCode=&hRptIsCorp=false&hRptType=P&hRptId=13028&hRptDataIn=3&hRptOut=csv" +
+      "&hSelBrh=&hSelMth=&hSelServ=&hSelCounter=&hSelTeller=&hSelDayTimeSlot=&hSelWTItv=" +
+      "&hSelSTItv=&hSelRptWTItvGrp=&hSelRptSTItvGrp=&hSelRptTrsSTItvGrp=&hSelTgtWt=&hSelTgtSt=" +
+      "&hSelTgtTt=&hSelQuestion=&hSelAnswer=&hSelTransaction=&hSelBrhGrp=&hSelSvcGrp=" +
+      "&hSelServPrio=&hSelTgtAvgWt=&hSelTgtAvgSt=&hSelTmFmt=1&hSelQuesGrp=&hSelBrhGrpType=" +
+      "&hSelTrxSTItv=&hSelTgtTrxSt=&hSelTrxSTRange=&hSelWTRange=&hSelIct=&hSelTrxGrpTyp=" +
+      "&hSelTrxGrp=&hSelTmPeriod=&hSelStartWorkTm=&hSelSvcGrpTyp=&hLoad1stRecFlg=Y" +
+      "&hLoad1stRecId=99023134&hLoad1stRecNm=AKPK+Appointment+Ticket+Report&hLoad1stRecTyp=P" +
+      "&hApplyExpDate=Y&hSelectAllServiceFlg=N&hSelectAllBranchFlg=N&hSelectAllTellerFlg=N" +
+      "&hSelectAllTrxFlg=Y&rptLevel=&rptSelFieldIdList=&hServTypeSelInd=0&hBrhTypeSelInd=0" +
+      "&hTgtWtTypeSelInd=0&hTgtStTypeSelInd=0&hTgtTrxStTypeSelInd=0&hTgtTtTypeSelInd=0" +
+      "&hIctTypeSelInd=0&hTellerTypeSelInd=0&hSvcGrpSelectionType=0&hBrhGrpSelectionType=0" +
+      "&hQuesGrpSelectionType=0&hSvcGrpTypSelectionType=0&hTmFmtSelInd=Y&hMthSelInd=N" +
+      "&hServSelInd=N&hBrhInd=N&hCounterSelInd=N&hTellerSelInd=N&hDayTimeSlotSelInd=Y" +
+      "&hWTItvSelInd=N&hSTItvSelInd=N&hQuestionSelInd=N&hAnswerSelInd=N&hTransactionSelInd=Y" +
+      "&hBrhGrpSelInd=N&hSvcGrpSelInd=N&hServPrioSelInd=N&hTgtAvgWtSelInd=N&hTgtAvgStSelInd=N" +
+      "&hQuesGrpSelInd=N&hBrhGrpTypeSelInd=N&hTrxSTItvSelInd=N&hTrxSTRangeSelInd=N" +
+      "&hWTRangeSelInd=N&hIctSelInd=N&hTrxGrpTypeSelInd=N&hTrxGrpSelInd=N&hTmPeriodSelInd=N" +
+      "&hStartWorkTmInd=N&hSelSvcGrpTypInd=N&hBranchGrpSelPurpose=0&hServiceGrpSelPurpose=1" +
+      "&hTrxGrpSelPurpose=0&hWtGrpIsUpdate=Y&hStGrpIsUpdate=Y&hTrsStGrpIsUpdate=Y" +
+      "&hUploadFolderNm=&hIsDefRpt=Y&hIsUsrRpt=N&hSelStdWt=&hSelStdWtP2=&hSelStdSt=&hSelStdStP2=",
+  },
 };
 
 const PAYLOAD_TEMPLATE =
