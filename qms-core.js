@@ -5146,8 +5146,8 @@ export const inputFor = (r) =>
   r.period === "monthly"
     ? "month YYYY-MM"
     : r.period === "range"
-    ? "date_from + date_to (YYYY-MM-DD)"
-    : "date YYYY-MM-DD";
+      ? "date_from + date_to (YYYY-MM-DD)"
+      : "date YYYY-MM-DD";
 
 // Words too generic to help disambiguate; ignored when scoring search queries.
 const SEARCH_STOPWORDS = new Set([
@@ -5453,7 +5453,7 @@ export class Session {
 // rejected with a clear error instead of silently hitting the wrong server.
 export const WORKSPACE_ENDPOINTS = {
   "gms-qms700i-gmshq": { host: "http://54.251.164.99:49999", contextRoot: "/QMS700i" },
-  "gms-qms400i-branch123": { host: "http://172.17.203.41", contextRoot: "/QMS400i" },
+  "gms-qms700i-btt": { host: "http://172.17.203.61", contextRoot: "/QMS700i" },
 };
 
 // The context root already baked into LOGIN_PATH / REPORT_PATH / REPORT_PAGE_PATH
@@ -5472,7 +5472,7 @@ export function resolveWorkspaceEndpoint(workspaceSlug) {
     const known = Object.keys(WORKSPACE_ENDPOINTS).join(", ") || "(none configured)";
     throw new Error(
       `Unknown or missing workspace_slug '${workspaceSlug}'. This workspace is not mapped ` +
-        `to a QMS endpoint. Known workspaces: ${known}.`
+      `to a QMS endpoint. Known workspaces: ${known}.`
     );
   }
   return endpoint;
