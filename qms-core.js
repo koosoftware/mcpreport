@@ -5453,7 +5453,7 @@ export class Session {
 // rejected with a clear error instead of silently hitting the wrong server.
 export const WORKSPACE_ENDPOINTS = {
   "gms-qms700i-gmshq": { host: "http://54.251.164.99:49999", contextRoot: "/QMS700i" },
-  "gms-qms700i-btt": { host: "http://172.17.203.61", contextRoot: "/QMS700i" },
+  "hospmelaka-qms700i-hospmelaka": { host: "http://54.251.164.99:49432", contextRoot: "/QMS700i" },
 };
 
 // The context root already baked into LOGIN_PATH / REPORT_PATH / REPORT_PAGE_PATH
